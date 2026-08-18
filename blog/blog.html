@@ -5,101 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog — Plain Days</title>
   <link rel="stylesheet" href="blog.css">
-  <link rel="stylesheet" href="blog-modern.css">
 </head>
 <body class="pd-blog-page">
   <main class="pd-blog-shell">
-    <header class="pd-blog-top">
-      <a href="https://plain-days.com/" target="_top" class="pd-home-link">
-        <span class="pd-back-arrow">←</span>
-        <span>PLAIN DAYS</span>
-      </a>
+    <section class="pd-screen pd-archive is-active" id="archive-screen">
+      <header class="pd-topline">
+        <a href="https://plain-days.com/" target="_top">← PLAIN DAYS</a>
+        <span>JOURNAL / AUGUST 2026</span>
+      </header>
 
-      <div class="pd-blog-tools">
-        <div class="pd-search">
-          <span class="pd-search-icon">⌕</span>
-          <input type="search" id="blog-search" placeholder="search moments..." autocomplete="off" aria-label="Search blog posts">
-          <button type="button" class="pd-search-clear" id="search-clear" aria-label="Clear search">×</button>
+      <section class="pd-archive-hero">
+        <p>monthly notes · side a</p>
+        <h1>press play<br><i>on august.</i></h1>
+        <span>four little stories, recorded slowly.</span>
+      </section>
+
+      <section class="pd-player" id="player">
+        <div class="pd-player-meta">
+          <span>PLAIN DAYS PLAYER</span>
+          <span id="player-state">SELECT A TAPE</span>
         </div>
-        <span class="pd-blog-number">BLOG / 01</span>
-      </div>
-    </header>
-
-    <section class="pd-blog-intro">
-      <div class="pd-blog-title">
-        <div class="pd-daily-pill">
-          <span class="pd-daily-dot"></span>
-          <span>DAILY JOURNAL</span>
+        <div class="pd-slot">
+          <div class="pd-loaded">
+            <span id="loaded-title">AUG / —</span>
+            <div class="pd-mini-reels"><i></i><i></i></div>
+          </div>
         </div>
-        <h1>little moments,<br>kept a little longer.</h1>
-      </div>
+        <div class="pd-controls">
+          <button type="button" class="pd-ctrl" aria-label="Previous track">◁</button>
+          <button type="button" class="pd-play" id="play-button" aria-label="Play selected story">▶</button>
+          <button type="button" class="pd-ctrl" aria-label="Next track">▷</button>
+          <span>08 · 2026</span>
+        </div>
+      </section>
 
-      <div class="pd-intro-glass">
-        <p>photos from everyday life,<br>with the stories behind them.</p>
-      </div>
+      <div class="pd-monthline"><b>AUGUST</b><span>SIDE A · 4 TRACKS</span></div>
+
+      <section class="pd-tape-grid">
+        <button type="button" class="pd-tape" data-track="01" data-title="sunday morning" data-date="03 AUG 2026" data-copy="a quiet morning, coffee, sunlight, and a few thoughts I wanted to keep." data-image="images/01_morning_bed.png">
+          <div class="pd-shine"></div>
+          <div class="pd-tape-label"><b>01</b><span>SUNDAY MORNING</span><small>AUG 03</small></div>
+          <div class="pd-tape-art"><img src="images/01_morning_bed.png" alt="Sunday morning"></div>
+          <div class="pd-window"><div class="pd-reel"></div><div class="pd-bridge">PLAIN DAYS</div><div class="pd-reel"></div></div>
+          <footer><span>WEEK 01</span><span>SIDE A</span></footer>
+        </button>
+
+        <button type="button" class="pd-tape" data-track="02" data-title="lately" data-date="10 AUG 2026" data-copy="small objects, little rituals, and the things that quietly stayed with me this week." data-image="images/02_soft_vanity.png">
+          <div class="pd-shine"></div>
+          <div class="pd-tape-label"><b>02</b><span>LATELY</span><small>AUG 10</small></div>
+          <div class="pd-tape-art"><img src="images/02_soft_vanity.png" alt="Lately"></div>
+          <div class="pd-window"><div class="pd-reel"></div><div class="pd-bridge">PLAIN DAYS</div><div class="pd-reel"></div></div>
+          <footer><span>WEEK 02</span><span>SIDE A</span></footer>
+        </button>
+
+        <button type="button" class="pd-tape" data-track="03" data-title="small joys" data-date="17 AUG 2026" data-copy="a few soft moments that made an ordinary week feel a little brighter." data-image="images/03_wellness_morning.png">
+          <div class="pd-shine"></div>
+          <div class="pd-tape-label"><b>03</b><span>SMALL JOYS</span><small>AUG 17</small></div>
+          <div class="pd-tape-art"><img src="images/03_wellness_morning.png" alt="Small joys"></div>
+          <div class="pd-window"><div class="pd-reel"></div><div class="pd-bridge">PLAIN DAYS</div><div class="pd-reel"></div></div>
+          <footer><span>WEEK 03</span><span>SIDE A</span></footer>
+        </button>
+
+        <button type="button" class="pd-tape" data-track="04" data-title="a slow weekend" data-date="24 AUG 2026" data-copy="an afternoon that did not need to become anything more than what it already was." data-image="images/04_slow_breakfast.png">
+          <div class="pd-shine"></div>
+          <div class="pd-tape-label"><b>04</b><span>A SLOW WEEKEND</span><small>AUG 24</small></div>
+          <div class="pd-tape-art"><img src="images/04_slow_breakfast.png" alt="A slow weekend"></div>
+          <div class="pd-window"><div class="pd-reel"></div><div class="pd-bridge">PLAIN DAYS</div><div class="pd-reel"></div></div>
+          <footer><span>WEEK 04</span><span>SIDE A</span></footer>
+        </button>
+      </section>
+
+      <p class="pd-instruction" id="instruction">choose a tape, then press play.</p>
     </section>
 
-    <section class="pd-blog-grid">
-      <a href="post-01.html" class="pd-post pd-post-one" data-search="sunday morning happy 18 aug 2026 coffee daily journal">
-        <div class="pd-post-photo">
-          <img src="images/01_morning_bed.png" alt="Sunday morning">
-          <span class="pd-glass-light"></span>
-          <span class="pd-post-arrow">↗</span>
-          <div class="pd-post-info">
-            <div><span class="pd-post-date">18 AUG 2026</span><h2>sunday morning.</h2></div>
-            <span class="pd-mood"><span class="pd-mood-face">☺</span> HAPPY</span>
-          </div>
+    <article class="pd-screen pd-story" id="story-screen">
+      <header class="pd-storybar">
+        <button type="button" id="back-button">← BACK TO TAPE ARCHIVE</button>
+        <span id="now-playing">NOW PLAYING — AUG / TRACK 01</span>
+      </header>
+
+      <section class="pd-story-hero">
+        <div class="pd-story-meta"><span id="story-date">03 AUG 2026</span><span>PLAIN DAYS / WEEKLY NOTE</span></div>
+        <h1 id="story-title">sunday morning.</h1>
+        <p id="story-lead">a quiet morning, coffee, sunlight, and a few thoughts I wanted to keep.</p>
+      </section>
+
+      <figure class="pd-story-image">
+        <img id="story-image" src="images/01_morning_bed.png" alt="Story cover">
+        <figcaption>AUGUST / SIDE A</figcaption>
+      </figure>
+
+      <section class="pd-article-body">
+        <p class="pd-dropcap">Some weeks are remembered by big events. Others stay because of one quiet morning, a cup left on the table, light moving slowly across the room, or a thought that arrived without asking for attention.</p>
+        <blockquote>“I think I want to remember ordinary days exactly because they are ordinary.”</blockquote>
+        <div class="pd-columns">
+          <p>This is where each weekly note will live. Photos can interrupt the text, captions can sit in the margins, and small interface details can make every post feel like another track in the archive.</p>
+          <p>The visual language stays connected to the tape player without turning the article itself into a gimmick. Once reading begins, the page becomes calmer and more editorial.</p>
         </div>
-      </a>
+      </section>
 
-      <a href="post-02.html" class="pd-post pd-post-two" data-search="lately calm 14 aug 2026 flowers skincare daily journal">
-        <div class="pd-post-photo">
-          <img src="images/02_soft_vanity.png" alt="Lately">
-          <span class="pd-glass-light"></span>
-          <span class="pd-post-arrow">↗</span>
-          <div class="pd-post-info">
-            <div><span class="pd-post-date">14 AUG 2026</span><h2>lately.</h2></div>
-            <span class="pd-mood"><span class="pd-mood-face">☺</span> CALM</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="post-03.html" class="pd-post pd-post-three" data-search="small joys cozy 09 aug 2026 headphones daily journal">
-        <div class="pd-post-photo">
-          <img src="images/03_wellness_morning.png" alt="Small joys">
-          <span class="pd-glass-light"></span>
-          <span class="pd-post-arrow">↗</span>
-          <div class="pd-post-info">
-            <div><span class="pd-post-date">09 AUG 2026</span><h2>small joys.</h2></div>
-            <span class="pd-mood"><span class="pd-mood-face">☺</span> COZY</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="post-04.html" class="pd-post pd-post-four" data-search="a slow weekend relaxed 03 aug 2026 fruit coffee daily journal">
-        <div class="pd-post-photo">
-          <img src="images/04_slow_breakfast.png" alt="A slow weekend">
-          <span class="pd-glass-light"></span>
-          <span class="pd-post-arrow">↗</span>
-          <div class="pd-post-info">
-            <div><span class="pd-post-date">03 AUG 2026</span><h2>a slow weekend.</h2></div>
-            <span class="pd-mood"><span class="pd-mood-face">☺</span> RELAXED</span>
-          </div>
-        </div>
-      </a>
-
-      <div class="pd-no-results" id="no-results">no little moments found.</div>
-    </section>
-
-    <footer class="pd-blog-instagram">
-      <div class="pd-instagram-copy">
-        <strong>more little moments</strong>
-        <span>follow along on instagram.</span>
-      </div>
-      <a href="https://www.instagram.com/plaindays.co/" target="_blank" rel="noopener noreferrer" class="pd-instagram-pill">
-        <span>@PLAINDAYS.CO</span><span>↗</span>
-      </a>
-    </footer>
+      <footer class="pd-track-footer">
+        <div><small>CURRENT TAPE</small><b id="footer-track">AUG / 01</b></div>
+        <button type="button" id="next-track">NEXT TRACK →</button>
+      </footer>
+    </article>
   </main>
   <script src="blog.js"></script>
 </body>
