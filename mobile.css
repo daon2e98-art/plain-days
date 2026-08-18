@@ -1,0 +1,178 @@
+/* Plain Days — mobile iframe-safe layout */
+
+@media (max-width: 720px) {
+  html, body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255,255,255,.98), rgba(242,244,243,.92) 46%, rgba(224,228,227,.96) 100%);
+  }
+
+  .hero {
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 18px 12px 22px !important;
+  }
+
+  .topbar {
+    width: 100%;
+    padding: 0 4px;
+    font-size: 10px;
+  }
+
+  .date {
+    display: none;
+  }
+
+  .ipad {
+    width: min(100%, 430px) !important;
+    margin-top: 34px !important;
+  }
+
+  .ipad-frame {
+    width: 100% !important;
+    height: 520px !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    padding: 9px !important;
+    border-radius: 24px !important;
+  }
+
+  .ipad-frame::after {
+    inset: 6px !important;
+    border-radius: 20px !important;
+  }
+
+  .ipad-screen {
+    border-radius: 16px !important;
+  }
+
+  .screen-top {
+    top: 15px !important;
+    left: 16px !important;
+    right: 16px !important;
+    font-size: 6.5px !important;
+  }
+
+  .notification-area {
+    top: 48px !important;
+    right: 13px !important;
+    width: 64% !important;
+    gap: 7px !important;
+  }
+
+  .notification {
+    grid-template-columns: 28px 1fr auto !important;
+    gap: 7px !important;
+    padding: 7px 8px !important;
+    border-radius: 10px !important;
+  }
+
+  .notification-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 10px !important;
+    border-radius: 50% !important;
+  }
+
+  .notification-meta { font-size: 6px !important; }
+  .notification p { font-size: 5.5px !important; margin-top: 3px !important; }
+  .notification-arrow { font-size: 7px !important; }
+
+  .screen-center {
+    top: 58% !important;
+    width: calc(100% - 28px) !important;
+    max-width: 350px !important;
+  }
+
+  .pearl {
+    width: 34px !important;
+    height: 34px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .screen-small { font-size: 9px !important; }
+  .title-group h2 { font-size: 31px !important; }
+
+  .glass-enter {
+    margin-top: 26px !important;
+    padding: 10px 11px !important;
+    border-radius: 12px !important;
+    font-size: 7px !important;
+  }
+
+  .enter-cloud { font-size: 10px !important; }
+
+  .glass-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    margin-top: 7px !important;
+  }
+
+  .glass-card {
+    min-height: 82px !important;
+    padding: 9px !important;
+    border-radius: 12px !important;
+  }
+
+  .glass-icon {
+    height: 25px !important;
+    font-size: 11px !important;
+  }
+
+  .glass-card-text { gap: 4px !important; }
+  .glass-card strong { font-size: 6.5px !important; }
+  .glass-card span { font-size: 5px !important; line-height: 1.3 !important; }
+  .glass-arrow { top: 8px !important; right: 8px !important; font-size: 7px !important; }
+
+  .ipad-shadow {
+    width: 84% !important;
+    height: 14px !important;
+    margin-top: -3px !important;
+    filter: blur(14px) !important;
+  }
+
+  .click-note {
+    margin: 12px 0 0 !important;
+    font-size: 9px !important;
+  }
+
+  .hero-footer {
+    margin-top: 22px !important;
+    padding-top: 0 !important;
+    gap: 10px !important;
+    font-size: 8px !important;
+  }
+
+  .hero-footer span + span::before {
+    margin-right: 10px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .ipad-frame {
+    height: 500px !important;
+  }
+
+  .ipad {
+    margin-top: 28px !important;
+  }
+
+  .notification-area {
+    width: 66% !important;
+  }
+
+  .title-group h2 {
+    font-size: 29px !important;
+  }
+
+  .glass-card {
+    min-height: 78px !important;
+  }
+}
