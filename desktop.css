@@ -1,151 +1,160 @@
-/* Plain Days — desktop scale pass 01 */
+/* Plain Days — desktop scale pass 02 */
 
 @media (min-width: 721px) {
   .hero {
-    padding: 22px 34px 18px;
+    min-height: 100svh;
+    padding: 18px 26px 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .topbar {
-    width: min(1380px, 96%);
+    width: min(1480px, 97%);
     font-size: 13px;
   }
 
   .ipad {
-    width: min(1180px, 88vw, calc(80vh * 1.43));
-    margin-top: clamp(20px, 3vh, 34px);
+    width: min(1420px, 92vw);
+    margin-top: clamp(16px, 2.2vh, 26px);
   }
 
   .ipad-frame {
-    padding: 16px;
-    border-radius: 34px;
+    padding: 18px;
+    border-radius: 38px;
   }
 
   .ipad-frame::after {
-    inset: 8px;
-    border-radius: 29px;
+    inset: 9px;
+    border-radius: 32px;
   }
 
   .ipad-screen {
-    border-radius: 21px;
+    border-radius: 24px;
   }
 
   .ipad-camera {
-    top: 7px;
+    top: 8px;
     width: 6px;
     height: 6px;
   }
 
   .screen-top {
-    top: 22px;
-    left: 28px;
-    right: 28px;
-    font-size: 9px;
+    top: 26px;
+    left: 34px;
+    right: 34px;
+    font-size: 10px;
   }
 
   .notification-area {
-    top: 68px;
-    right: 34px;
-    width: 290px;
-    gap: 10px;
+    top: 82px;
+    right: 42px;
+    width: 350px;
+    gap: 12px;
   }
 
   .notification {
-    grid-template-columns: 40px 1fr auto;
-    gap: 11px;
-    padding: 11px 13px;
-    border-radius: 14px;
+    grid-template-columns: 46px 1fr auto;
+    gap: 13px;
+    padding: 13px 15px;
+    border-radius: 16px;
   }
 
   .notification-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
-    font-size: 14px;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    font-size: 16px;
   }
 
   .notification-meta {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .notification p {
     margin-top: 4px;
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .notification-arrow {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .screen-center {
     top: 52%;
-    width: min(640px, 62%);
+    width: min(760px, 64%);
   }
 
   .pearl {
-    width: 45px;
-    height: 45px;
-    margin-bottom: 10px;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
   }
 
   .screen-small {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .title-group h2 {
-    font-size: 48px;
+    font-size: 56px;
   }
 
   .glass-enter {
-    margin-top: 30px;
-    padding: 12px 16px;
-    border-radius: 13px;
-    font-size: 9px;
+    margin-top: 36px;
+    padding: 14px 18px;
+    border-radius: 15px;
+    font-size: 10px;
   }
 
   .enter-cloud {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .glass-menu {
-    gap: 11px;
-    margin-top: 11px;
+    gap: 13px;
+    margin-top: 13px;
   }
 
   .glass-card {
-    min-height: 104px;
-    padding: 14px;
-    border-radius: 14px;
+    min-height: 122px;
+    padding: 17px;
+    border-radius: 16px;
   }
 
   .glass-icon {
-    height: 31px;
-    font-size: 15px;
+    height: 36px;
+    font-size: 17px;
   }
 
   .glass-card-text {
-    gap: 5px;
+    gap: 6px;
   }
 
   .glass-card strong {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .glass-card span {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .glass-arrow {
-    top: 14px;
-    right: 14px;
+    top: 16px;
+    right: 16px;
+    font-size: 10px;
+  }
+
+  .ipad-shadow {
+    width: 86%;
+    height: 24px;
   }
 
   .click-note {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 11px;
   }
 
   .hero-footer {
-    padding-top: 18px;
+    padding-top: 14px;
     gap: 34px;
     font-size: 11px;
   }
