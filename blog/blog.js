@@ -11,13 +11,11 @@ const nextTrack=document.getElementById('next-track');
 const tapeGuide=document.getElementById('tape-guide');
 let selected=null;
 
-/* Simplify the first onboarding bubble. */
 const tapeGuideBubble=document.querySelector('.pd-tape-guide');
 if(tapeGuideBubble){
   tapeGuideBubble.innerHTML='<strong>START HERE ✦</strong>choose a cassette first';
 }
 
-/* Create the second guide beside the PLAY button. */
 const playGuide=document.createElement('div');
 playGuide.className='pd-play-guide';
 playGuide.innerHTML='<strong>NEXT ✦</strong><br>then press ▶ to read';
@@ -43,7 +41,6 @@ function selectTape(tape){
   }
 
   hidePlayGuide();
-
   player.classList.remove('is-playing');
   playerState.textContent='LOADING TAPE';
   loadedTitle.textContent=`AUG / ${tape.dataset.track} · inserting…`;
@@ -64,6 +61,13 @@ function openStory(){
   }
 
   hidePlayGuide();
+
+  if(selected.dataset.url){
+    playerState.textContent=`PLAYING / TRACK ${selected.dataset.track}`;
+    instruction.textContent='opening journal…';
+    setTimeout(()=>window.location.href=selected.dataset.url,220);
+    return;
+  }
 
   document.getElementById('now-playing').textContent=`NOW PLAYING — AUG / TRACK ${selected.dataset.track}`;
   document.getElementById('story-date').textContent=selected.dataset.date;
