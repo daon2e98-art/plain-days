@@ -14,113 +14,116 @@
       <span>AUGUST 2026 / WEEK 01</span>
     </header>
 
-    <section class="w1-title-zone">
-      <div class="w1-nowplaying w1-enter d2">
-        <span>NOW PLAYING ✦</span>
-        <button id="soundToggle" type="button" aria-label="Toggle ambient sound">▶ little things</button>
-      </div>
-      <div class="w1-title w1-enter d3">
-        <span class="w1-sticker">☁️</span>
-        <span class="w1-sticker">✨</span>
-        <span class="w1-sticker">🎀</span>
+    <section class="hero-board">
+      <aside class="mini-player window draggable w1-enter d2">
+        <div class="window-bar"><span>NOW PLAYING ✦</span></div>
+        <button id="soundToggle" type="button">▶ Little Things</button>
+        <small>by Plain Days</small>
+        <div class="progress"><i></i></div>
+        <div class="time"><span>0:00</span><span>3:48</span></div>
+      </aside>
+
+      <div class="title-cluster w1-enter d3">
+        <span class="tape-label">WEEK 01</span>
+        <div class="scribbles">☁️　♡　✦　🎀　☄️</div>
         <h1>little things<br><em>from this week</em></h1>
-        <p>AUG 03 — AUG 09 · a week of refresh, laughter & inspiration</p>
+        <p>AUG 03 — AUG 09</p>
       </div>
-      <aside class="w1-emoji-note draggable w1-enter d4">
+
+      <aside class="emoji-note draggable w1-enter d4">
+        <span class="tape-strip"></span>
         <strong>this week in emojis</strong>
-        <div>🍌 🥛 🥂 😵‍💫</div>
-        <div>🏛️ 🏺 👑 ✨</div>
-        <div>☁️ 📸 🍝 💗</div>
+        <div>🍌　🥛　🥂　😵‍💫</div>
+        <div>🏛️　🏺　🗿　✨</div>
+        <div>☁️　📷　🎧　💗</div>
       </aside>
     </section>
 
-    <section class="w1-main-grid">
-      <article class="window photo-window draggable w1-enter d5">
-        <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span>plain days.exe</span><button class="minimize" type="button">—</button></div>
-        <div class="hero-photo photo-slot" data-fallback="📷 portrait image">
+    <section class="hero-grid">
+      <article class="window hero-window draggable w1-enter d5">
+        <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span>plain days.exe</span><button class="minimize" type="button">☰</button></div>
+        <div class="hero-photo photo-slot">
           <img src="images/week01/portrait-main.png" alt="Week 01 portrait">
-          <button class="heart-burst" type="button" aria-label="Send hearts">♡</button>
-          <span class="float-emoji e1">☁️</span><span class="float-emoji e2">🫧</span><span class="float-emoji e3">✨</span>
+          <button class="heart-burst" type="button">♡</button>
+          <span class="cloud-sticker">☁️</span><span class="spark-sticker">✨</span><span class="flower-sticker">🌼</span>
         </div>
-        <div class="photo-footer"><span>PLAIN DAYS</span><span>WEEK 01 / SIDE A</span></div>
+        <div class="photo-footer"><span>PLAIN DAYS</span><span>●　●　●</span></div>
       </article>
 
       <aside class="window playlist-window draggable w1-enter d6">
         <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span>week 01 playlist ♫</span><button class="minimize" type="button">—</button></div>
         <div class="playlist-body">
-          <button class="track is-active" type="button"><span>▶</span><b>Sunset Lover</b><small>Petit Biscuit</small></button>
-          <button class="track" type="button"><span>▷</span><b>Warm Nights</b><small>LANY</small></button>
-          <button class="track" type="button"><span>▷</span><b>Ocean Drive</b><small>Duke Dumont</small></button>
-          <button class="track" type="button"><span>▷</span><b>Bloom</b><small>The Paper Kites</small></button>
+          <button class="track is-active"><span>▶</span><b>Sunset Lover</b><small>Petit Biscuit</small><time>03:57</time></button>
+          <button class="track"><span>▷</span><b>Warm Nights</b><small>LANY</small><time>03:15</time></button>
+          <button class="track"><span>▷</span><b>Ocean Drive</b><small>Duke Dumont</small><time>03:26</time></button>
+          <button class="track"><span>▷</span><b>Bloom</b><small>The Paper Kites</small><time>04:00</time></button>
+          <button class="track"><span>▷</span><b>Dreamy</b><small>Chase Atlantic</small><time>02:33</time></button>
         </div>
+        <div class="player-controls">↝　◁　◉　▷　↻</div>
       </aside>
-    </section>
 
-    <section class="w1-cards">
-      <article class="paper-card drink-card draggable w1-enter d7">
-        <span class="pin">📎</span>
-        <h2>🍌 + 🥛 + 🥂 = chaos & joy ☺</h2>
-        <div class="photo-slot small-photo" data-fallback="🍌🥛 drinks photo"><img src="images/week01/04_banana_milk.png" alt="Banana milk"></div>
-        <p>One of those nights with my favorite unnie — banana milk, drinks, too much laughing, and enough alcohol to completely let go for a while. Messy, funny, and exactly the kind of reset I needed.</p>
-        <button class="cheers" type="button">cheers! 🥂</button>
-      </article>
-
-      <article class="paper-card museum-card draggable w1-enter d8">
-        <span class="pin">🏛️</span>
-        <h2>museum day · inspiration unlocked ✨</h2>
-        <div class="museum-stack">
-          <button class="museum-shot photo-slot" type="button" data-fallback="👑 museum"><img src="images/week01/06_museum_crown.png" alt="Historic crown display"></button>
-          <button class="museum-shot photo-slot" type="button" data-fallback="🗿 statue"><img src="images/week01/08_museum_statue.png" alt="Historic sculpture"></button>
-          <button class="museum-shot photo-slot" type="button" data-fallback="✨ gold"><img src="images/week01/09_museum_gold_artifact.png" alt="Historic gold artifact"></button>
-        </div>
-        <p>My husband and I spent the day walking through Korean history — from prehistoric life to the Joseon Dynasty. Seeing objects that survived centuries gave me a kind of inspiration I don’t usually make space for.</p>
-      </article>
-
-      <article class="paper-card little-note draggable w1-enter d9">
-        <h2>today’s little note 💌</h2>
+      <aside class="refresh-note paper-note draggable w1-enter d6">a week of<br>refreshing<br>and little<br>inspiration ♡</aside>
+      <aside class="little-note paper-note draggable w1-enter d7">
+        <h2>💗 today’s little note</h2>
         <label><input type="checkbox"> be kind to myself</label>
         <label><input type="checkbox"> laugh a lot</label>
         <label><input type="checkbox"> see beautiful things</label>
         <label><input type="checkbox"> make more memories</label>
-        <label><input type="checkbox"> stay close to the people I love</label>
-      </article>
+        <label><input type="checkbox"> stay close to the people i love</label>
+      </aside>
     </section>
 
-    <section class="w1-gallery w1-enter d10">
-      <button class="polaroid photo-slot" data-fallback="☁️ sky"><img src="images/week01/05_blue_sky_museum.png" alt="Blue museum sky"><span>blue sky ☁️</span></button>
-      <button class="polaroid photo-slot" data-fallback="🌿 lake"><img src="images/week01/14_little_happiness_lake.png" alt="Lake pavilion"><span>little happiness ♡</span></button>
-      <button class="polaroid photo-slot" data-fallback="🍝 pasta"><img src="images/week01/plain-days-week01-pasta.png" alt="Cream pasta"><span>good food = ♡</span></button>
-      <button class="polaroid photo-slot" data-fallback="🥂 meatballs"><img src="images/week01/plain-days-week01-meatballs.png" alt="Meatballs"><span>cheers! ✨</span></button>
-      <button class="polaroid photo-slot" data-fallback="🥞 okonomiyaki"><img src="images/week01/10_okonomiyaki.png" alt="Okonomiyaki"><span>yum! ☺</span></button>
-      <button class="polaroid photo-slot" data-fallback="🍻 drunk days"><img src="images/week01/13_drunk_days_food.png" alt="Drunk days food"><span>drunk days ↗</span></button>
+    <section class="story-row w1-enter d8">
+      <article class="story-card chaos-card draggable">
+        <h2>🥛 + 🍌 + 🥂 =<br>chaos & joy ☺</h2>
+        <p>Banana milk, drinks, way too much laughing, and the kind of night that we’ll talk about forever.</p>
+        <span>♡　↝</span>
+      </article>
+      <div class="tilted-photo draggable"><img src="images/week01/04_banana_milk.png" alt="Banana milk"></div>
+      <article class="story-card museum-copy draggable">
+        <h2>museum day 🏛️</h2>
+        <p>We visited the National Museum and walked through Korean history from the Stone Age to the Joseon Dynasty. Every exhibit left me with so much to think about.</p>
+        <p><em>history, culture, and the beauty of things passed down.</em></p>
+      </article>
+      <div class="museum-collage draggable">
+        <img class="museum-big" src="images/week01/06_museum_crown.png" alt="Historic crown">
+        <img src="images/week01/09_museum_gold_artifact.png" alt="Gold artifact">
+        <img src="images/week01/08_museum_statue.png" alt="Historic statue">
+        <span>so much to learn ✦</span>
+      </div>
     </section>
 
-    <section class="w1-ending">
-      <article class="window note-window draggable w1-enter d11">
-        <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span>self reminder.exe</span><button class="minimize" type="button">—</button></div>
-        <div class="note-body">
-          <span class="big-heart">♡</span>
-          <p>take my time.<br>enjoy the process.<br>let ordinary days surprise me.<br><br>this week gave me back a little room to breathe.</p>
-          <button id="gotIt" type="button">got it! ✨</button>
-        </div>
-      </article>
+    <section class="w1-gallery w1-enter d9">
+      <button class="polaroid photo-slot"><img src="images/week01/05_blue_sky_museum.png" alt="Blue museum sky"><span>blue sky ☁️</span></button>
+      <button class="polaroid photo-slot"><img src="images/week01/14_little_happiness_lake.png" alt="Lake pavilion"><span>little happiness ♡</span></button>
+      <button class="polaroid photo-slot"><img src="images/week01/plain-days-week01-pasta.png" alt="Cream pasta"><span>cream pasta</span></button>
+      <button class="polaroid photo-slot"><img src="images/week01/plain-days-week01-meatballs.png" alt="Meatballs"><span>cheers! ✨</span></button>
+      <button class="polaroid photo-slot"><img src="images/week01/10_okonomiyaki.png" alt="Okonomiyaki"><span>yum! ☺</span></button>
+    </section>
 
-      <article class="gratitude w1-enter d12">
+    <section class="ending-grid w1-enter d10">
+      <article class="calendar-card draggable">
+        <span class="tape-strip"></span>
+        <h2>august</h2>
+        <div class="calendar">S　M　T　W　T　F　S<br><br>　　　　　　　　1　2<br>3　④　5　6　7　8　9<br>10 11 12 13 14 15 16<br>17 18 19 20 21 22 23<br>24 25 26 27 28 29 30<br>31</div>
+      </article>
+      <article class="gratitude draggable">
         <h2>this week, i’m grateful for…</h2>
-        <p>♡ laughing until I cried with someone I love</p>
-        <p>♡ learning more about Korean history and culture</p>
+        <p>♡ laughing until i cried with my favorite people</p>
+        <p>♡ learning more about korean history and culture</p>
+        <p>♡ beautiful sky and peaceful walks</p>
         <p>♡ good food and full stomachs</p>
-        <p>♡ a clear blue sky and slow walks</p>
-        <p>♡ inspiration that arrived when I wasn’t looking for it</p>
+        <p>♡ moments that refreshed my heart</p>
       </article>
-
-      <a class="next-track w1-enter d13" href="blog.html">
-        <span>NEXT TRACK</span><b>02 / WEEK 02</b><span>→</span>
-      </a>
+      <article class="window note-window draggable">
+        <div class="window-bar"><span class="dots"><i></i><i></i><i></i></span><span>self reminder.exe</span><button class="minimize">×</button></div>
+        <div class="note-body"><p>take my time.<br>enjoy the process.<br>everything is happening at the right time.</p><span class="big-heart">♡</span><button id="gotIt">got it! ✨</button></div>
+      </article>
+      <a class="next-track draggable" href="blog.html"><span>NEXT TRACK</span><b>02 / WEEK 02</b><strong>→</strong><div class="cassette-mini">▥　◉　◉　▥</div></a>
     </section>
   </main>
 
-  <div class="heart-layer" id="heartLayer" aria-hidden="true"></div>
+  <div class="heart-layer" id="heartLayer"></div>
   <script src="week-01.js"></script>
 </body>
 </html>
