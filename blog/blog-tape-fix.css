@@ -1,0 +1,135 @@
+/* Plain Days — cassette proportion + onboarding guide */
+
+/* Keep the cassette itself from stretching on wide screens. */
+.pd-tape-grid{
+  grid-template-columns:repeat(2,minmax(0,480px));
+  justify-content:center;
+  align-items:start;
+  gap:20px;
+}
+
+.pd-tape{
+  width:100%;
+  max-width:480px;
+  aspect-ratio:1.58 / 1;
+  min-height:0;
+  justify-self:center;
+}
+
+.pd-tape-art{
+  inset:18% 2.2% 14%;
+}
+
+.pd-window{
+  left:13%;
+  right:13%;
+  top:34%;
+  height:37%;
+  max-height:none;
+}
+
+.pd-reel{
+  width:clamp(46px,6vw,60px);
+  height:clamp(46px,6vw,60px);
+}
+
+/* Guide bubble */
+.pd-tape-guide-wrap{
+  width:min(980px,100%);
+  margin:0 auto 14px;
+  display:flex;
+  justify-content:flex-start;
+  pointer-events:none;
+  transition:opacity .28s ease,transform .28s ease,max-height .28s ease,margin .28s ease;
+  max-height:72px;
+}
+
+.pd-tape-guide-wrap.is-hidden{
+  opacity:0;
+  transform:translateY(-5px);
+  max-height:0;
+  margin-bottom:0;
+}
+
+.pd-tape-guide{
+  position:relative;
+  margin-left:34px;
+  padding:10px 14px 11px;
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:15px;
+  background:linear-gradient(145deg,rgba(255,255,255,.65),rgba(225,231,227,.28));
+  box-shadow:inset 0 1px rgba(255,255,255,.95),0 10px 26px rgba(48,56,52,.09);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  color:#626762;
+  font-size:9px;
+  line-height:1.45;
+  letter-spacing:.08em;
+  animation:pdGuideFloat 2.2s ease-in-out infinite;
+}
+
+.pd-tape-guide strong{
+  display:block;
+  margin-bottom:2px;
+  color:#353835;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.14em;
+}
+
+.pd-tape-guide::after{
+  content:"";
+  position:absolute;
+  left:28px;
+  bottom:-8px;
+  width:14px;
+  height:14px;
+  transform:rotate(45deg);
+  border-right:1px solid rgba(255,255,255,.9);
+  border-bottom:1px solid rgba(255,255,255,.9);
+  background:rgba(236,240,237,.78);
+}
+
+@keyframes pdGuideFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+
+@media(max-width:720px){
+  .pd-tape-grid{
+    grid-template-columns:minmax(0,480px);
+    gap:16px;
+  }
+
+  .pd-tape{
+    max-width:480px;
+    aspect-ratio:1.58 / 1;
+    min-height:0;
+  }
+
+  .pd-tape-guide-wrap{
+    width:100%;
+    margin-bottom:12px;
+  }
+
+  .pd-tape-guide{
+    margin-left:12px;
+    font-size:8px;
+  }
+}
+
+@media(max-width:430px){
+  .pd-tape{
+    aspect-ratio:1.56 / 1;
+  }
+
+  .pd-window{
+    top:33%;
+    height:38%;
+  }
+
+  .pd-reel{
+    width:46px;
+    height:46px;
+  }
+}
