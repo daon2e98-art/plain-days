@@ -1,4 +1,4 @@
-/* Plain Days — desktop scale pass 02 */
+/* Plain Days — desktop scale pass 03 */
 
 @media (min-width: 721px) {
   .hero {
@@ -46,8 +46,8 @@
   }
 
   .notification-area {
-    top: 82px;
-    right: 42px;
+    top: 102px;
+    right: 77px;
     width: 350px;
     gap: 12px;
   }
@@ -80,8 +80,12 @@
   }
 
   .screen-center {
-    top: 52%;
+    top: calc(52% + 20px);
     width: min(760px, 64%);
+  }
+
+  .title-group {
+    transform: translateY(-45px);
   }
 
   .pearl {
@@ -99,7 +103,7 @@
   }
 
   .glass-enter {
-    margin-top: 36px;
+    margin-top: -9px;
     padding: 14px 18px;
     border-radius: 15px;
     font-size: 10px;
