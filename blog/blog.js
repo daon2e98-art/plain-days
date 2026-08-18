@@ -11,6 +11,28 @@ const nextTrack=document.getElementById('next-track');
 const tapeGuide=document.getElementById('tape-guide');
 let selected=null;
 
+/* Simplify the first onboarding bubble. */
+const tapeGuideBubble=document.querySelector('.pd-tape-guide');
+if(tapeGuideBubble){
+  tapeGuideBubble.innerHTML='<strong>START HERE ✦</strong>choose a cassette first';
+}
+
+/* Create the second guide beside the PLAY button. */
+const playGuide=document.createElement('div');
+playGuide.className='pd-play-guide';
+playGuide.innerHTML='<strong>NEXT ✦</strong><br>then press ▶ to read';
+playButton.parentElement.appendChild(playGuide);
+
+function hidePlayGuide(){
+  playGuide.classList.remove('is-visible');
+  playButton.classList.remove('is-guide-target');
+}
+
+function showPlayGuide(){
+  playGuide.classList.add('is-visible');
+  playButton.classList.add('is-guide-target');
+}
+
 function selectTape(tape){
   tapes.forEach(t=>t.classList.remove('is-active'));
   tape.classList.add('is-active');
@@ -19,6 +41,8 @@ function selectTape(tape){
   if(tapeGuide){
     tapeGuide.classList.add('is-hidden');
   }
+
+  hidePlayGuide();
 
   player.classList.remove('is-playing');
   playerState.textContent='LOADING TAPE';
@@ -29,6 +53,7 @@ function selectTape(tape){
     player.classList.add('is-playing');
     playerState.textContent=`READY / TRACK ${tape.dataset.track}`;
     loadedTitle.textContent=tape.dataset.title;
+    showPlayGuide();
   },380);
 }
 
@@ -37,6 +62,8 @@ function openStory(){
     instruction.textContent='choose a tape first.';
     return;
   }
+
+  hidePlayGuide();
 
   document.getElementById('now-playing').textContent=`NOW PLAYING — AUG / TRACK ${selected.dataset.track}`;
   document.getElementById('story-date').textContent=selected.dataset.date;
@@ -59,6 +86,7 @@ playButton.addEventListener('click',openStory);
 backButton.addEventListener('click',()=>{
   storyScreen.classList.remove('is-active');
   archiveScreen.classList.add('is-active');
+  hidePlayGuide();
   window.scrollTo({top:0,behavior:'smooth'});
 });
 
