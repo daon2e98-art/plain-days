@@ -1,90 +1,58 @@
-/* ==========================================
-   PLAIN DAYS BLOG SEARCH
-========================================== */
+const tapes=[...document.querySelectorAll('.pd-tape')];
+const player=document.getElementById('player');
+const playerState=document.getElementById('player-state');
+const loadedTitle=document.getElementById('loaded-title');
+const instruction=document.getElementById('instruction');
+const playButton=document.getElementById('play-button');
+const archiveScreen=document.getElementById('archive-screen');
+const storyScreen=document.getElementById('story-screen');
+const backButton=document.getElementById('back-button');
+const nextTrack=document.getElementById('next-track');
+let selected=null;
 
-const searchInput =
-  document.getElementById("blog-search");
-
-const searchClear =
-  document.getElementById("search-clear");
-
-const searchBox =
-  document.querySelector(".pd-search");
-
-const posts =
-  document.querySelectorAll(".pd-post");
-
-const noResults =
-  document.getElementById("no-results");
-
-
-function filterPosts() {
-
-  const query =
-    searchInput.value
-      .trim()
-      .toLowerCase();
-
-
-  searchBox.classList.toggle(
-    "has-text",
-    query.length > 0
-  );
-
-
-  let visibleCount = 0;
-
-
-  posts.forEach((post) => {
-
-    const searchableText =
-      (
-        post.dataset.search +
-        " " +
-        post.textContent
-      ).toLowerCase();
-
-
-    const matches =
-      searchableText.includes(query);
-
-
-    post.classList.toggle(
-      "is-hidden",
-      !matches
-    );
-
-
-    if (matches) {
-      visibleCount++;
-    }
-
-  });
-
-
-  noResults.classList.toggle(
-    "show",
-    visibleCount === 0
-  );
-
+function selectTape(tape){
+  tapes.forEach(t=>t.classList.remove('is-active'));
+  tape.classList.add('is-active');
+  selected=tape;
+  player.classList.remove('is-playing');
+  playerState.textContent='LOADING TAPE';
+  loadedTitle.textContent=`AUG / ${tape.dataset.track} · inserting…`;
+  instruction.textContent='tape selected · press play to read';
+  setTimeout(()=>{
+    player.classList.add('is-playing');
+    playerState.textContent=`READY / TRACK ${tape.dataset.track}`;
+    loadedTitle.textContent=tape.dataset.title;
+  },380);
 }
 
-
-searchInput.addEventListener(
-  "input",
-  filterPosts
-);
-
-
-searchClear.addEventListener(
-  "click",
-  () => {
-
-    searchInput.value = "";
-
-    filterPosts();
-
-    searchInput.focus();
-
+function openStory(){
+  if(!selected){
+    instruction.textContent='choose a tape first.';
+    return;
   }
-);
+  document.getElementById('now-playing').textContent=`NOW PLAYING — AUG / TRACK ${selected.dataset.track}`;
+  document.getElementById('story-date').textContent=selected.dataset.date;
+  document.getElementById('story-title').textContent=`${selected.dataset.title}.`;
+  document.getElementById('story-lead').textContent=selected.dataset.copy;
+  document.getElementById('footer-track').textContent=`AUG / ${selected.dataset.track}`;
+  const storyImage=document.getElementById('story-image');
+  storyImage.src=selected.dataset.image;
+  storyImage.alt=selected.dataset.title;
+  archiveScreen.classList.remove('is-active');
+  storyScreen.classList.add('is-active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+tapes.forEach(tape=>tape.addEventListener('click',()=>selectTape(tape)));
+playButton.addEventListener('click',openStory);
+backButton.addEventListener('click',()=>{
+  storyScreen.classList.remove('is-active');
+  archiveScreen.classList.add('is-active');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+nextTrack.addEventListener('click',()=>{
+  if(!selected)return;
+  const index=tapes.indexOf(selected);
+  selectTape(tapes[(index+1)%tapes.length]);
+  setTimeout(openStory,430);
+});
