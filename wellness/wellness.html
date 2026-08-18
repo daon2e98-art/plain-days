@@ -1,411 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wellness — Plain Days</title>
-
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="wellness.css">
 </head>
-
-
 <body class="wellness-page">
-
   <main class="wellness-shell">
-
-
-    <!-- TOP BAR -->
-
     <header class="wellness-topbar">
-
-      <a
-        href="index.html"
-        class="wellness-back"
-      >
-        <span>←</span>
-        <span>PLAIN DAYS</span>
+      <a href="https://plain-days.com/" target="_top" class="wellness-back">
+        <span>←</span><span>PLAIN DAYS</span>
       </a>
-
-
-      <span class="wellness-index">
-        WELLNESS / 02
-      </span>
-
+      <span class="wellness-index">WELLNESS / 02</span>
     </header>
 
-
-
-    <!-- MONTH HEADER -->
-
     <section class="wellness-heading">
-
       <div>
-
-        <span class="wellness-kicker">
-          LITTLE WELLNESS
-        </span>
-
-        <h1>
-          August
-        </h1>
-
-        <p>
-          one healthy thing,<br>
-          every day.
-        </p>
-
+        <span class="wellness-kicker">LITTLE WELLNESS</span>
+        <h1>August</h1>
+        <p>one healthy thing,<br>every day.</p>
       </div>
-
-
-      <div class="month-chip">
-        2026
-      </div>
-
+      <div class="month-chip">2026</div>
     </section>
-
-
-
-    <!-- CALENDAR -->
 
     <section class="wellness-calendar">
-
-
-      <!-- WEEK DAYS -->
-
       <div class="calendar-weekdays">
-
-        <span>S</span>
-        <span>M</span>
-        <span>T</span>
-        <span>W</span>
-        <span>T</span>
-        <span>F</span>
-        <span>S</span>
-
+        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
       </div>
-
-
-
-      <!-- DAYS -->
 
       <div class="calendar-grid">
+        <div class="calendar-empty"></div><div class="calendar-empty"></div><div class="calendar-empty"></div><div class="calendar-empty"></div><div class="calendar-empty"></div>
 
-
-        <!-- empty cells before Aug 1 -->
-        <div class="calendar-empty"></div>
-        <div class="calendar-empty"></div>
-        <div class="calendar-empty"></div>
-        <div class="calendar-empty"></div>
-        <div class="calendar-empty"></div>
-
-
-        <!-- 01 -->
-        <a
-          href="https://www.instagram.com/plaindays.co/"
-          target="_blank"
-          class="wellness-day day-photo"
-        >
-          <span class="day-number">1</span>
-
-          <img
-            src="images/wellness-01.jpg"
-            alt="Wellness moment August 1"
-          >
+        <a href="https://www.instagram.com/plaindays.co/" target="_blank" rel="noopener noreferrer" class="wellness-day day-photo">
+          <span class="day-number">1</span><img src="image/wellness-01.jpg" alt="Wellness moment August 1">
         </a>
-
-
-        <!-- 02 -->
-        <a
-          href="post-01.html"
-          class="wellness-day day-symbol sage"
-        >
-          <span class="day-number">2</span>
-
-          <span class="day-emoji">
-            ☀
-          </span>
-        </a>
-
-
-        <!-- 03 -->
-       <div class="wellness-day day-symbol aqua">
-  <span class="day-number">3</span>
-
-  <span class="day-emoji">
-    🍵
-  </span>
-</div>
-
-
-        <!-- 04 -->
-        <a
-          href="#"
-          class="wellness-day day-photo"
-        >
-          <span class="day-number">4</span>
-
-          <img
-            src="images/wellness-04.jpg"
-            alt="Wellness moment August 4"
-          >
-        </a>
-
-
-        <!-- 05 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">5</span>
-        </div>
-
-
-        <!-- 06 -->
-        <a
-          href="#"
-          class="wellness-day day-symbol sky"
-        >
-          <span class="day-number">6</span>
-
-          <span class="day-emoji">
-            🫐
-          </span>
-        </a>
-
-
-        <!-- 07 -->
-        <a
-          href="#"
-          class="wellness-day day-symbol teal"
-        >
-          <span class="day-number">7</span>
-
-          <span class="day-emoji">
-            🌿
-          </span>
-        </a>
-
-
-        <!-- 08 -->
-        <a
-          href="#"
-          class="wellness-day day-photo"
-        >
-          <span class="day-number">8</span>
-
-          <img
-            src="images/wellness-08.jpg"
-            alt="Wellness moment August 8"
-          >
-        </a>
-
-
-        <!-- 09 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">9</span>
-        </div>
-
-
-        <!-- 10 -->
-        <a href="#" class="wellness-day day-symbol sage">
-          <span class="day-number">10</span>
-          <span class="day-emoji">🍓</span>
-        </a>
-
-
-        <!-- 11 -->
-        <a href="#" class="wellness-day day-symbol aqua">
-          <span class="day-number">11</span>
-          <span class="day-emoji">🧘</span>
-        </a>
-
-
-        <!-- 12 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">12</span>
-        </div>
-
-
-        <!-- 13 -->
-        <a href="#" class="wellness-day day-photo">
-          <span class="day-number">13</span>
-
-          <img
-            src="images/wellness-13.jpg"
-            alt="Wellness moment August 13"
-          >
-        </a>
-
-
-        <!-- 14 -->
-        <a href="#" class="wellness-day day-symbol sky">
-          <span class="day-number">14</span>
-          <span class="day-emoji">🍊</span>
-        </a>
-
-
-        <!-- 15 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">15</span>
-        </div>
-
-
-        <!-- 16 -->
-        <a href="#" class="wellness-day day-symbol teal">
-          <span class="day-number">16</span>
-          <span class="day-emoji">🥗</span>
-        </a>
-
-
-        <!-- 17 -->
-        <a href="#" class="wellness-day day-symbol sage">
-          <span class="day-number">17</span>
-          <span class="day-emoji">🌞</span>
-        </a>
-
-
-        <!-- 18 -->
-        <a
-          href="https://www.instagram.com/plaindays.co/"
-          target="_blank"
-          class="wellness-day day-photo today"
-        >
-          <span class="day-number">18</span>
-
-          <img
-            src="images/wellness-18.jpg"
-            alt="Wellness moment August 18"
-          >
-        </a>
-
-
-        <!-- 19 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">19</span>
-        </div>
-
-
-        <!-- 20 -->
-        <a href="#" class="wellness-day day-symbol aqua">
-          <span class="day-number">20</span>
-          <span class="day-emoji">🍌</span>
-        </a>
-
-
-        <!-- 21 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">21</span>
-        </div>
-
-
-        <!-- 22 -->
-        <a href="#" class="wellness-day day-symbol sky">
-          <span class="day-number">22</span>
-          <span class="day-emoji">🥝</span>
-        </a>
-
-
-        <!-- 23 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">23</span>
-        </div>
-
-
-        <!-- 24 -->
-        <a href="#" class="wellness-day day-symbol teal">
-          <span class="day-number">24</span>
-          <span class="day-emoji">🚶</span>
-        </a>
-
-
-        <!-- 25 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">25</span>
-        </div>
-
-
-        <!-- 26 -->
-        <a href="#" class="wellness-day day-symbol sage">
-          <span class="day-number">26</span>
-          <span class="day-emoji">🍏</span>
-        </a>
-
-
-        <!-- 27 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">27</span>
-        </div>
-
-
-        <!-- 28 -->
-        <a href="#" class="wellness-day day-symbol aqua">
-          <span class="day-number">28</span>
-          <span class="day-emoji">🫧</span>
-        </a>
-
-
-        <!-- 29 -->
-        <div class="wellness-day day-empty">
-          <span class="day-number">29</span>
-        </div>
-
-
-        <!-- 30 -->
-        <a href="#" class="wellness-day day-symbol sky">
-          <span class="day-number">30</span>
-          <span class="day-emoji">🌼</span>
-        </a>
-
-
-        <!-- 31 -->
-        <a href="#" class="wellness-day day-symbol teal">
-          <span class="day-number">31</span>
-          <span class="day-emoji">🍵</span>
-        </a>
-
-
+        <a href="#" class="wellness-day day-symbol sage"><span class="day-number">2</span><span class="day-emoji">☀</span></a>
+        <div class="wellness-day day-symbol aqua"><span class="day-number">3</span><span class="day-emoji">🍵</span></div>
+        <a href="#" class="wellness-day day-photo"><span class="day-number">4</span><img src="image/wellness-04.jpg" alt="Wellness moment August 4"></a>
+        <div class="wellness-day day-empty"><span class="day-number">5</span></div>
+        <a href="#" class="wellness-day day-symbol sky"><span class="day-number">6</span><span class="day-emoji">🫐</span></a>
+        <a href="#" class="wellness-day day-symbol teal"><span class="day-number">7</span><span class="day-emoji">🌿</span></a>
+        <a href="#" class="wellness-day day-photo"><span class="day-number">8</span><img src="image/wellness-08.jpg" alt="Wellness moment August 8"></a>
+        <div class="wellness-day day-empty"><span class="day-number">9</span></div>
+        <a href="#" class="wellness-day day-symbol sage"><span class="day-number">10</span><span class="day-emoji">🍓</span></a>
+        <a href="#" class="wellness-day day-symbol aqua"><span class="day-number">11</span><span class="day-emoji">🧘</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">12</span></div>
+        <a href="#" class="wellness-day day-photo"><span class="day-number">13</span><img src="image/wellness-13.jpg" alt="Wellness moment August 13"></a>
+        <a href="#" class="wellness-day day-symbol sky"><span class="day-number">14</span><span class="day-emoji">🍊</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">15</span></div>
+        <a href="#" class="wellness-day day-symbol teal"><span class="day-number">16</span><span class="day-emoji">🥗</span></a>
+        <a href="#" class="wellness-day day-symbol sage"><span class="day-number">17</span><span class="day-emoji">🌞</span></a>
+        <a href="https://www.instagram.com/plaindays.co/" target="_blank" rel="noopener noreferrer" class="wellness-day day-photo today"><span class="day-number">18</span><img src="image/wellness-18.jpg" alt="Wellness moment August 18"></a>
+        <div class="wellness-day day-empty"><span class="day-number">19</span></div>
+        <a href="#" class="wellness-day day-symbol aqua"><span class="day-number">20</span><span class="day-emoji">🍌</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">21</span></div>
+        <a href="#" class="wellness-day day-symbol sky"><span class="day-number">22</span><span class="day-emoji">🥝</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">23</span></div>
+        <a href="#" class="wellness-day day-symbol teal"><span class="day-number">24</span><span class="day-emoji">🚶</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">25</span></div>
+        <a href="#" class="wellness-day day-symbol sage"><span class="day-number">26</span><span class="day-emoji">🍏</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">27</span></div>
+        <a href="#" class="wellness-day day-symbol aqua"><span class="day-number">28</span><span class="day-emoji">🫧</span></a>
+        <div class="wellness-day day-empty"><span class="day-number">29</span></div>
+        <a href="#" class="wellness-day day-symbol sky"><span class="day-number">30</span><span class="day-emoji">🌼</span></a>
+        <a href="#" class="wellness-day day-symbol teal"><span class="day-number">31</span><span class="day-emoji">🍵</span></a>
       </div>
-
     </section>
-
-
-
-    <!-- BOTTOM -->
 
     <section class="wellness-bottom">
-
-      <button class="month-nav">
-        ← JULY
-      </button>
-
-
-      <div class="wellness-progress">
-
-        <span>
-          AUGUST ARCHIVE
-        </span>
-
-        <strong>
-          18 little moments
-        </strong>
-
-      </div>
-
-
-      <button class="month-nav">
-        SEPTEMBER →
-      </button>
-
+      <button class="month-nav">← JULY</button>
+      <div class="wellness-progress"><span>AUGUST ARCHIVE</span><strong>18 little moments</strong></div>
+      <button class="month-nav">SEPTEMBER →</button>
     </section>
-
-
-
   </main>
-
+  <script src="wellness.js"></script>
 </body>
-
 </html>
