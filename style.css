@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Libre+Caslon+Display&display=swap');
+
+:root {
+  --ink: #242424;
+  --soft-ink: #747474;
+  --line: rgba(30, 30, 30, 0.12);
+  --glass: rgba(255, 255, 255, 0.52);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  font-family: 'DM Sans', Arial, sans-serif;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.95), rgba(245,245,243,.82) 42%, rgba(230,230,228,.9) 100%);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.hero {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 40px 20px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(255,255,255,.8), transparent 35%, rgba(255,255,255,.4));
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: .18em;
+}
+
+.brand { font-weight: 600; }
+.date { color: var(--soft-ink); }
+
+.ipad {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(22px, 4vh, 46px);
+  width: min(690px, 82vw);
+  cursor: default;
+}
+
+.ipad-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.43 / 1;
+  padding: 14px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #fafafa 0%, #d8d8d8 38%, #f8f8f8 65%, #bdbdbd 100%);
+  box-shadow: 0 28px 70px rgba(0,0,0,.16), inset 0 0 0 1px rgba(255,255,255,.9), inset 0 0 0 2px rgba(0,0,0,.08);
+}
+
+.ipad-frame::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border-radius: 23px;
+  border: 1px solid rgba(0,0,0,.08);
+  pointer-events: none;
+}
+
+.ipad-camera {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #606060;
+  z-index: 4;
+}
+
+.ipad-screen {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 70% 15%, rgba(255,255,255,.92), transparent 32%),
+    linear-gradient(135deg, #e6e7e5, #f8f8f6 48%, #dedfdd);
+  box-shadow: inset 0 0 25px rgba(0,0,0,.04);
+}
+
+.ipad-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(118deg, rgba(255,255,255,.55), transparent 38%, rgba(255,255,255,.2));
+  pointer-events: none;
+}
+
+.screen-top {
+  position: absolute;
+  z-index: 3;
+  top: 17px;
+  left: 21px;
+  right: 21px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: .18em;
+}
+
+.notification-area {
+  position: absolute;
+  z-index: 4;
+  top: 48px;
+  right: 24px;
+  width: 190px;
+  display: grid;
+  gap: 7px;
+}
+
+.notification {
+  display: grid;
+  grid-template-columns: 27px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 9px;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 10px;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.055);
+  opacity: 0;
+  transform: translateX(16px);
+  transition: transform .25s ease, background .25s ease;
+}
+
+.notification.show {
+  animation: notificationIn .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.notification:nth-child(2).show { animation-delay: .16s; }
+.notification:hover { transform: translateY(-2px); background: rgba(255,255,255,.72); }
+
+.notification-icon {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(255,255,255,.72);
+  font-size: 11px;
+}
+.notification-copy { min-width: 0; }
+.notification-meta { display: flex; justify-content: space-between; gap: 5px; font-size: 5px; letter-spacing: .08em; }
+.notification-meta span { color: #8c8c8c; font-weight: 400; }
+.notification p { margin: 2px 0 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #676767; font-size: 5.5px; }
+.notification-arrow { color: #888; font-size: 7px; }
+
+.screen-center {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 51%;
+  width: min(390px, 67%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-group { text-align: center; }
+.pearl {
+  width: 31px;
+  height: 31px;
+  margin: 0 auto 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff 0%, #fafafa 20%, #d9d9d7 48%, #fff 72%, #bcbcb9 100%);
+  box-shadow: 0 5px 13px rgba(0,0,0,.13), inset -4px -5px 8px rgba(0,0,0,.06);
+}
+.screen-small { margin: 0; color: #777; font-family: 'Libre Caslon Display', Georgia, serif; font-size: 9px; font-style: italic; }
+.title-group h2 { margin: 0; font-family: 'Libre Caslon Display', Georgia, serif; font-size: 29px; font-weight: 400; letter-spacing: -.03em; }
+
+.glass-enter {
+  width: 100%;
+  margin-top: 20px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 9px;
+  background: rgba(255,255,255,.34);
+  backdrop-filter: blur(12px);
+  color: #777;
+  font-size: 6px;
+  letter-spacing: .04em;
+}
+.enter-cloud { font-size: 9px; }
+
+.glass-menu {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-top: 7px;
+}
+.glass-card {
+  min-height: 72px;
+  position: relative;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 10px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 7px 18px rgba(0,0,0,.045);
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.glass-card:hover { transform: translateY(-3px); background: rgba(255,255,255,.68); box-shadow: 0 11px 22px rgba(0,0,0,.07); }
+.glass-icon { height: 22px; color: #666; font-size: 11px; }
+.glass-card-text { display: grid; gap: 3px; }
+.glass-card strong { font-size: 6px; letter-spacing: .14em; }
+.glass-card span { color: #777; font-size: 5px; line-height: 1.3; }
+.glass-arrow { position: absolute; top: 10px; right: 10px; }
+
+.ipad-shadow {
+  width: 83%;
+  height: 18px;
+  margin: -4px auto 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.15);
+  filter: blur(16px);
+}
+
+.click-note {
+  position: relative;
+  z-index: 2;
+  margin: 15px 0 0;
+  color: #929292;
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.hero-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  gap: 28px;
+  color: #777;
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 10px;
+  font-style: italic;
+}
+.hero-footer span + span::before { content: '·'; margin-right: 28px; color: #aaa; }
+
+@keyframes notificationIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 720px) {
+  .hero { padding: 20px 18px 18px; min-height: 100svh; }
+  .topbar { font-size: 9px; }
+  .ipad { width: min(94vw, 600px); margin-top: 11vh; }
+  .ipad-frame { padding: 9px; border-radius: 20px; }
+  .ipad-screen { border-radius: 13px; }
+  .notification-area { top: 37px; right: 16px; width: 150px; }
+  .notification { grid-template-columns: 22px 1fr auto; padding: 6px; gap: 5px; }
+  .notification-icon { width: 22px; height: 22px; }
+  .screen-center { top: 55%; width: 72%; }
+  .pearl { width: 24px; height: 24px; margin-bottom: 4px; }
+  .title-group h2 { font-size: 22px; }
+  .glass-enter { margin-top: 12px; padding: 6px; }
+  .glass-menu { gap: 4px; margin-top: 4px; }
+  .glass-card { min-height: 55px; padding: 7px; border-radius: 7px; }
+  .glass-icon { height: 17px; font-size: 8px; }
+  .glass-card strong { font-size: 5px; }
+  .glass-card span { font-size: 4px; }
+  .glass-arrow { top: 7px; right: 7px; }
+  .hero-footer { gap: 11px; font-size: 9px; }
+  .hero-footer span + span::before { margin-right: 11px; }
+}
+
+@media (max-width: 460px) {
+  .date { display: none; }
+  .ipad { margin-top: 15vh; width: 96vw; }
+  .notification-area { top: 31px; right: 12px; width: 132px; gap: 4px; }
+  .notification { padding: 4px 5px; border-radius: 7px; }
+  .notification-icon { width: 18px; height: 18px; font-size: 8px; border-radius: 5px; }
+  .notification-meta, .notification p { font-size: 4px; }
+  .screen-top { top: 12px; left: 15px; right: 15px; font-size: 5px; }
+  .screen-center { top: 57%; width: 75%; }
+  .title-group h2 { font-size: 18px; }
+  .screen-small { font-size: 6px; }
+  .pearl { width: 20px; height: 20px; }
+  .glass-enter { margin-top: 8px; font-size: 4px; padding: 4px; }
+  .glass-card { min-height: 45px; padding: 5px; }
+  .glass-icon { height: 13px; font-size: 6px; }
+  .glass-card strong { font-size: 4px; }
+  .glass-card span { font-size: 3.5px; }
+  .click-note { margin-top: 10px; }
+}
