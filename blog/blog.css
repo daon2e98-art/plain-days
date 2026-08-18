@@ -1,0 +1,1900 @@
+/* =========================================================
+   PLAIN DAYS
+   BLOG / WARM LIQUID GLASS
+========================================================= */
+
+
+/* =========================================================
+   RESET HOME PAGE RULES
+========================================================= */
+
+html {
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+
+body.pd-blog-page {
+  width: 100%;
+  height: auto !important;
+  min-height: 100vh;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  margin: 0;
+
+  color: #493f38;
+
+  background:
+    radial-gradient(
+      circle at 12% 16%,
+      rgba(255, 223, 202, .24),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 88% 65%,
+      rgba(255, 230, 213, .16),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #f7f5f1 0%,
+      #f3f1ed 55%,
+      #efede9 100%
+    );
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+
+body.pd-blog-page * {
+  box-sizing: border-box;
+}
+
+
+body.pd-blog-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+/* =========================================================
+   PAGE WIDTH
+========================================================= */
+
+.pd-blog-shell {
+  width: min(1240px, calc(100vw - 80px));
+
+  margin: 0 auto;
+
+  padding:
+    32px
+    0
+    48px;
+}
+
+
+
+/* =========================================================
+   TOP GLASS BAR
+========================================================= */
+
+.pd-blog-top {
+  width: 100%;
+  height: 58px;
+
+  padding:
+    0
+    26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255,255,255,.72),
+      rgba(250,248,245,.36)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.96);
+
+  box-shadow:
+
+    inset 0 2px 2px
+    rgba(255,255,255,1),
+
+    inset 0 -2px 4px
+    rgba(130,115,105,.05),
+
+    0 4px 7px
+    rgba(55,48,43,.07),
+
+    0 15px 30px
+    rgba(55,48,43,.08);
+
+  backdrop-filter:
+    blur(24px)
+    saturate(125%);
+
+  -webkit-backdrop-filter:
+    blur(24px)
+    saturate(125%);
+}
+
+
+.pd-home-link {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: .18em;
+
+  color:
+    rgba(45,40,36,.78);
+}
+
+
+.pd-back-arrow {
+  font-size: 19px;
+
+  font-weight: 400;
+
+  letter-spacing: 0;
+}
+
+
+.pd-blog-number {
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: .16em;
+
+  color:
+    rgba(45,40,36,.78);
+}
+
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.pd-blog-intro {
+  min-height: 205px;
+
+  padding:
+    42px
+    32px
+    26px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    350px;
+
+  align-items: end;
+
+  gap: 50px;
+}
+
+
+
+/* =========================================================
+   DAILY JOURNAL — PALE PEACH GLASS
+========================================================= */
+
+.pd-daily-pill {
+  position: relative;
+
+  width: fit-content;
+
+  min-height: 38px;
+
+  margin-bottom: 19px;
+
+  padding:
+    0
+    17px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  color:
+    rgba(218,119,67,.76);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.73),
+      rgba(255,226,209,.28)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.98);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    inset 0 -3px 6px
+    rgba(225,160,125,.07),
+
+    0 5px 9px
+    rgba(70,58,50,.07),
+
+    -5px 8px 15px
+    rgba(255,177,128,.13),
+
+    -8px 12px 25px
+    rgba(255,190,145,.10);
+
+  backdrop-filter:
+    blur(18px)
+    saturate(125%);
+
+  -webkit-backdrop-filter:
+    blur(18px)
+    saturate(125%);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: .10em;
+}
+
+
+/* top glass highlight */
+
+.pd-daily-pill::before {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  right: 10px;
+  top: 2px;
+
+  height: 42%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.88),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+
+/* orange light under LEFT side */
+
+.pd-daily-pill::after {
+  content: "";
+
+  position: absolute;
+
+  left: -6px;
+  bottom: -5px;
+
+  width: 80%;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,162,103,.18);
+
+  filter:
+    blur(9px);
+
+  pointer-events: none;
+}
+
+
+.pd-daily-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(231,132,76,.72);
+
+  box-shadow:
+    0 0 8px
+    rgba(245,154,101,.25);
+}
+
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.pd-blog-title h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(46px, 4.4vw, 67px);
+
+  line-height: .98;
+
+  font-weight: 400;
+
+  letter-spacing: -.043em;
+
+  color:
+    rgba(68,57,50,.92);
+}
+
+
+
+/* =========================================================
+   INTRO NOTE
+========================================================= */
+
+.pd-intro-glass {
+  min-height: 92px;
+
+  padding:
+    23px
+    29px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.70),
+      rgba(247,243,238,.32)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.96);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    inset 0 -3px 6px
+    rgba(110,95,85,.04),
+
+    0 6px 10px
+    rgba(50,43,39,.07),
+
+    0 18px 35px
+    rgba(50,43,39,.07);
+
+  backdrop-filter:
+    blur(24px);
+
+  -webkit-backdrop-filter:
+    blur(24px);
+}
+
+
+.pd-intro-glass p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 17px;
+
+  line-height: 1.32;
+
+  color:
+    rgba(69,59,52,.67);
+}
+
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.pd-blog-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    38% 22% 40%;
+
+  grid-template-rows:
+    315px
+    250px;
+
+  gap: 18px;
+}
+
+
+.pd-post-one {
+  grid-column:
+    1 / 3;
+
+  grid-row: 1;
+}
+
+
+.pd-post-two {
+  grid-column:
+    3;
+
+  grid-row: 1;
+}
+
+
+.pd-post-three {
+  grid-column:
+    1;
+
+  grid-row: 2;
+}
+
+
+.pd-post-four {
+  grid-column:
+    2 / 4;
+
+  grid-row: 2;
+}
+
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.pd-post {
+  min-width: 0;
+  min-height: 0;
+}
+
+
+.pd-post-photo {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 8px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.73),
+      rgba(255,255,255,.23)
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.96);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    inset 0 -3px 6px
+    rgba(110,95,85,.05),
+
+    0 5px 8px
+    rgba(55,48,43,.08),
+
+    0 17px 30px
+    rgba(55,48,43,.10),
+
+    -6px 9px 18px
+    rgba(255,176,125,.10);
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+
+  transition:
+    transform .45s
+    cubic-bezier(.2,.8,.2,1),
+
+    box-shadow .45s ease;
+}
+
+
+
+/* soft orange underneath */
+
+.pd-post-photo::after {
+  content: "";
+
+  position: absolute;
+
+  z-index: 2;
+
+  left: -4%;
+  bottom: -10px;
+
+  width: 55%;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,161,100,.18);
+
+  filter:
+    blur(13px);
+
+  pointer-events: none;
+}
+
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.pd-post-photo > img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  filter:
+    saturate(.91)
+    brightness(1.035)
+    contrast(.97);
+
+  transition:
+    transform .65s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+
+
+/* =========================================================
+   TOP LEFT GLASS DOT
+========================================================= */
+
+.pd-glass-light {
+  position: absolute;
+
+  z-index: 8;
+
+  top: 14px;
+  left: 14px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.90);
+
+  box-shadow:
+    0 0 8px rgba(255,255,255,.95);
+}
+
+
+
+/* =========================================================
+   ARROW BUTTON
+========================================================= */
+
+.pd-post-arrow {
+  position: absolute;
+
+  z-index: 10;
+
+  top: 20px;
+  right: 20px;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 26px;
+
+  color:
+    rgba(218,123,69,.78);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.76),
+      rgba(249,243,237,.35)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.98);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    inset 0 -3px 6px
+    rgba(120,100,88,.05),
+
+    0 5px 9px
+    rgba(50,43,39,.09),
+
+    -4px 7px 14px
+    rgba(255,176,126,.09);
+
+  backdrop-filter:
+    blur(17px);
+
+  -webkit-backdrop-filter:
+    blur(17px);
+
+  transition:
+    transform .3s ease;
+}
+
+
+
+/* =========================================================
+   BOTTOM CAPTION
+========================================================= */
+
+.pd-post-info {
+  position: absolute;
+
+  z-index: 7;
+
+  left: 21px;
+  right: 21px;
+  bottom: 18px;
+
+  min-height: 82px;
+
+  padding:
+    14px
+    18px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247,243,238,.81),
+      rgba(255,255,255,.52)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.96);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,.95),
+
+    inset 0 -3px 6px
+    rgba(115,95,80,.04),
+
+    0 6px 11px
+    rgba(45,39,35,.09),
+
+    0 14px 25px
+    rgba(45,39,35,.07),
+
+    -5px 8px 15px
+    rgba(255,170,113,.08);
+
+  backdrop-filter:
+    blur(22px)
+    saturate(115%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(115%);
+}
+
+
+.pd-post-info::after {
+  content: "";
+
+  position: absolute;
+
+  left: -2%;
+  bottom: -7px;
+
+  width: 58%;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,164,105,.14);
+
+  filter:
+    blur(9px);
+}
+
+
+
+/* =========================================================
+   CAPTION TYPE
+========================================================= */
+
+.pd-post-date {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: .08em;
+
+  color:
+    rgba(220,123,68,.78);
+}
+
+
+.pd-post-info h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(23px, 2vw, 32px);
+
+  line-height: 1;
+
+  font-weight: 400;
+
+  letter-spacing: -.025em;
+
+  color:
+    rgba(65,54,47,.92);
+}
+
+
+
+/* =========================================================
+   MOOD
+========================================================= */
+
+.pd-mood {
+  min-height: 31px;
+
+  padding:
+    0
+    11px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,.48);
+
+  border:
+    1px solid rgba(255,255,255,.91);
+
+  box-shadow:
+
+    inset 0 1px 2px
+    rgba(255,255,255,.98),
+
+    0 4px 8px
+    rgba(55,45,40,.06),
+
+    -3px 5px 9px
+    rgba(255,172,116,.07);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
+
+  color:
+    rgba(216,119,65,.80);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: .06em;
+}
+
+
+.pd-mood-face {
+  font-size: 14px;
+}
+
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.pd-post:hover
+.pd-post-photo {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    0 7px 11px
+    rgba(55,48,43,.09),
+
+    0 22px 38px
+    rgba(55,48,43,.13),
+
+    -8px 12px 22px
+    rgba(255,174,121,.12);
+}
+
+
+.pd-post:hover
+.pd-post-photo > img {
+  transform:
+    scale(1.018);
+}
+
+
+.pd-post:hover
+.pd-post-arrow {
+  transform:
+    translate(2px,-2px);
+}
+
+
+
+/* =========================================================
+   INSTAGRAM FOOTER
+========================================================= */
+
+.pd-blog-instagram {
+  width: 100%;
+
+  min-height: 88px;
+
+  margin-top: 18px;
+
+  padding:
+    16px
+    27px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.69),
+      rgba(250,247,243,.30)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.96);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    0 5px 9px
+    rgba(50,43,39,.07),
+
+    0 17px 30px
+    rgba(50,43,39,.07);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+}
+
+
+.pd-instagram-copy {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.pd-instagram-copy strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 19px;
+
+  font-weight: 400;
+
+  color:
+    rgba(62,52,46,.90);
+}
+
+
+.pd-instagram-copy span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 15px;
+
+  font-style: italic;
+
+  color:
+    rgba(64,54,48,.55);
+}
+
+
+
+/* =========================================================
+   INSTAGRAM PEACH GLASS BUTTON
+========================================================= */
+
+.pd-instagram-pill {
+  min-width: 250px;
+
+  height: 48px;
+
+  padding:
+    0
+    20px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  color:
+    rgba(215,115,60,.80);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.70),
+      rgba(255,225,207,.27)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.97);
+
+  box-shadow:
+
+    inset 0 2px 3px
+    rgba(255,255,255,1),
+
+    inset 0 -3px 6px
+    rgba(220,150,112,.06),
+
+    0 5px 9px
+    rgba(65,52,45,.07),
+
+    -5px 8px 14px
+    rgba(255,165,105,.11),
+
+    -8px 13px 23px
+    rgba(255,183,132,.09);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: .05em;
+
+  transition:
+    transform .3s ease;
+}
+
+
+.pd-instagram-pill::after {
+  content: "";
+
+  position: absolute;
+
+  left: -3px;
+  bottom: -4px;
+
+  width: 70%;
+  height: 12px;
+
+  background:
+    rgba(255,160,99,.15);
+
+  filter:
+    blur(8px);
+
+  border-radius: 50%;
+}
+
+
+.pd-instagram-pill:hover {
+  transform:
+    translateY(-2px);
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .pd-blog-shell {
+    width:
+      calc(100vw - 40px);
+  }
+
+
+  .pd-blog-intro {
+    grid-template-columns:
+      1fr;
+
+    gap: 28px;
+  }
+
+
+  .pd-intro-glass {
+    width: 100%;
+  }
+
+
+  .pd-blog-grid {
+    grid-template-columns:
+      1fr 1fr;
+
+    grid-template-rows:
+      330px
+      280px;
+  }
+
+
+  .pd-post-one {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+
+  .pd-post-two {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+
+  .pd-post-three {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+
+  .pd-post-four {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+}
+
+
+
+@media (max-width: 650px) {
+
+  .pd-blog-shell {
+    width:
+      calc(100vw - 24px);
+
+    padding-top: 12px;
+  }
+
+
+  .pd-blog-top {
+    height: 52px;
+
+    padding:
+      0
+      17px;
+  }
+
+
+  .pd-home-link,
+  .pd-blog-number {
+    font-size: 9px;
+  }
+
+
+  .pd-blog-intro {
+    min-height: auto;
+
+    padding:
+      35px
+      8px
+      28px;
+  }
+
+
+  .pd-blog-title h1 {
+    font-size: 46px;
+  }
+
+
+  .pd-blog-grid {
+    display: block;
+  }
+
+
+  .pd-post {
+    display: block;
+
+    height: 390px;
+
+    margin-bottom: 16px;
+  }
+
+
+  .pd-post-info {
+    left: 16px;
+    right: 16px;
+    bottom: 15px;
+  }
+
+
+  .pd-blog-instagram {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+  }
+
+
+  .pd-instagram-pill {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+}
+
+/* =========================================================
+   MORE TRANSPARENT GLASS
+========================================================= */
+
+/* TOP BAR */
+.pd-blog-top {
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255,255,255,.50),
+      rgba(250,248,245,.18)
+    );
+
+  border-color:
+    rgba(255,255,255,.80);
+
+  backdrop-filter:
+    blur(28px)
+    saturate(125%);
+
+  -webkit-backdrop-filter:
+    blur(28px)
+    saturate(125%);
+}
+
+
+/* DAILY JOURNAL */
+.pd-daily-pill {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.44),
+      rgba(255,226,209,.15)
+    );
+
+  border-color:
+    rgba(255,255,255,.78);
+}
+
+
+/* INTRO NOTE */
+.pd-intro-glass {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.44),
+      rgba(247,243,238,.15)
+    );
+
+  border-color:
+    rgba(255,255,255,.78);
+
+  backdrop-filter:
+    blur(30px)
+    saturate(115%);
+
+  -webkit-backdrop-filter:
+    blur(30px)
+    saturate(115%);
+}
+
+
+/* PHOTO OUTER GLASS */
+.pd-post-photo {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.45),
+      rgba(255,255,255,.10)
+    );
+
+  border-color:
+    rgba(255,255,255,.80);
+
+  backdrop-filter:
+    blur(24px)
+    saturate(120%);
+
+  -webkit-backdrop-filter:
+    blur(24px)
+    saturate(120%);
+}
+
+
+/* PHOTO CAPTION — 가장 체감 큰 부분 */
+.pd-post-info {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(247,243,238,.58),
+      rgba(255,255,255,.28)
+    );
+
+  border-color:
+    rgba(255,255,255,.78);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.82),
+    inset 0 -3px 6px rgba(115,95,80,.025),
+
+    0 6px 11px rgba(45,39,35,.07),
+    0 14px 25px rgba(45,39,35,.055),
+
+    -5px 8px 15px rgba(255,170,113,.065);
+
+  backdrop-filter:
+    blur(26px)
+    saturate(110%);
+
+  -webkit-backdrop-filter:
+    blur(26px)
+    saturate(110%);
+}
+
+
+/* MOOD PILL */
+.pd-mood {
+  background:
+    rgba(255,255,255,.29);
+
+  border-color:
+    rgba(255,255,255,.72);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+
+/* ARROW */
+.pd-post-arrow {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.52),
+      rgba(249,243,237,.17)
+    );
+
+  border-color:
+    rgba(255,255,255,.80);
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+}
+
+
+/* INSTAGRAM FOOTER */
+.pd-blog-instagram {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.45),
+      rgba(250,247,243,.14)
+    );
+
+  border-color:
+    rgba(255,255,255,.78);
+
+  backdrop-filter:
+    blur(28px);
+
+  -webkit-backdrop-filter:
+    blur(28px);
+}
+
+
+/* INSTAGRAM BUTTON */
+.pd-instagram-pill {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.43),
+      rgba(255,225,207,.14)
+    );
+
+  border-color:
+    rgba(255,255,255,.78);
+
+  backdrop-filter:
+    blur(21px);
+
+  -webkit-backdrop-filter:
+    blur(21px);
+}
+/* =========================================================
+   BLOG SEARCH — LIQUID GLASS
+========================================================= */
+
+.pd-blog-tools {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+
+.pd-search {
+  width: 250px;
+  height: 40px;
+
+  padding:
+    0
+    12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.70),
+      rgba(255,229,212,.24)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.96);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,1),
+    inset 0 -3px 6px rgba(220,150,112,.05),
+    0 4px 8px rgba(55,45,40,.06),
+    -4px 7px 13px rgba(255,170,112,.08);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  transition:
+    width .35s ease,
+    box-shadow .3s ease;
+}
+
+
+.pd-search:focus-within {
+  width: 310px;
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,1),
+    0 5px 10px rgba(55,45,40,.07),
+    -5px 8px 17px rgba(255,164,105,.13);
+}
+
+
+.pd-search-icon {
+  flex-shrink: 0;
+
+  font-size: 17px;
+
+  color:
+    rgba(208,116,66,.68);
+}
+
+
+.pd-search input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  font: inherit;
+
+  font-size: 12px;
+
+  color:
+    rgba(60,52,47,.78);
+}
+
+
+.pd-search input::placeholder {
+  color:
+    rgba(80,68,60,.36);
+}
+
+
+.pd-search-clear {
+  width: 21px;
+  height: 21px;
+
+  padding: 0;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.40);
+
+  color:
+    rgba(70,58,52,.45);
+
+  cursor: pointer;
+}
+
+
+.pd-search.has-text
+.pd-search-clear {
+  display: flex;
+}
+
+
+/* search result transition */
+
+.pd-post {
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+
+.pd-post.is-hidden {
+  display: none;
+}
+
+
+/* no results */
+
+.pd-no-results {
+  display: none;
+
+  grid-column: 1 / -1;
+
+  min-height: 180px;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+
+  color:
+    rgba(65,55,48,.44);
+
+  background:
+    rgba(255,255,255,.25);
+
+  border:
+    1px solid rgba(255,255,255,.62);
+}
+
+
+.pd-no-results.show {
+  display: flex;
+}
+
+
+@media (max-width: 650px) {
+
+  .pd-blog-tools {
+    gap: 8px;
+  }
+
+  .pd-blog-number {
+    display: none;
+  }
+
+  .pd-search {
+    width: 170px;
+  }
+
+  .pd-search:focus-within {
+    width: 190px;
+  }
+
+}
+
+/* ==========================================
+   FINAL BLOG TYPOGRAPHY + TOPBAR CLEANUP
+========================================== */
+
+/* 상단 바 */
+.pd-blog-top {
+  height: 56px;
+
+  padding:
+    0
+    22px;
+}
+
+
+/* 상단 글씨 */
+.pd-home-link,
+.pd-blog-number {
+  font-size: 10px;
+
+  letter-spacing: .16em;
+}
+
+
+/* 검색창 */
+.pd-search {
+  width: 230px;
+
+  height: 36px;
+}
+
+.pd-search:focus-within {
+  width: 270px;
+}
+
+.pd-search input {
+  font-size: 10px;
+}
+
+.pd-search-icon {
+  font-size: 14px;
+}
+
+
+/* DAILY JOURNAL */
+.pd-daily-pill {
+  min-height: 34px;
+
+  padding:
+    0
+    15px;
+
+  font-size: 9px;
+
+  letter-spacing: .11em;
+}
+
+
+/* 메인 타이틀 */
+.pd-blog-title h1 {
+  font-size:
+    clamp(38px, 4vw, 58px);
+
+  line-height: .98;
+}
+
+
+/* 오른쪽 설명박스 */
+.pd-intro-glass {
+  min-height: 78px;
+
+  padding:
+    18px
+    25px;
+}
+
+.pd-intro-glass p {
+  font-size: 14px;
+
+  line-height: 1.35;
+}
+
+
+/* 날짜 */
+.pd-post-date {
+  font-size: 8px;
+
+  letter-spacing: .09em;
+}
+
+
+/* 포스트 제목 */
+.pd-post-info h2 {
+  font-size:
+    clamp(20px, 1.8vw, 28px);
+}
+
+
+/* mood */
+.pd-mood {
+  min-height: 28px;
+
+  padding:
+    0
+    9px;
+
+  font-size: 8px;
+}
+
+.pd-mood-face {
+  font-size: 12px;
+}
+
+
+/* 인스타그램 푸터 */
+.pd-instagram-copy strong {
+  font-size: 17px;
+}
+
+.pd-instagram-copy span {
+  font-size: 13px;
+}
+
+.pd-instagram-pill {
+  height: 43px;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   BLOG MOBILE — FINAL POLISH
+========================================================= */
+
+@media (max-width: 650px) {
+
+  /* TOP BAR */
+  .pd-blog-top {
+    padding: 0 12px;
+    gap: 10px;
+  }
+
+  .pd-home-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 8px;
+    letter-spacing: .12em;
+  }
+
+  .pd-back-arrow {
+    font-size: 15px;
+  }
+
+  .pd-blog-tools {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pd-search {
+    width: 100%;
+    min-width: 0;
+    height: 34px;
+  }
+
+  .pd-search:focus-within {
+    width: 100%;
+  }
+
+  .pd-search input {
+    min-width: 0;
+    font-size: 9px;
+  }
+
+
+  /* INTRO */
+  .pd-blog-intro {
+    padding-top: 34px;
+    padding-bottom: 24px;
+  }
+
+  .pd-blog-title h1 {
+    font-size: 42px;
+    line-height: .95;
+  }
+
+  .pd-intro-glass {
+    margin-top: 24px;
+    min-height: 72px;
+    padding: 18px 22px;
+  }
+
+  .pd-intro-glass p {
+    font-size: 13px;
+  }
+
+
+  /* PHOTO CARDS */
+  .pd-post {
+    height: 350px;
+    margin-bottom: 14px;
+  }
+
+  .pd-post-info {
+    left: 15px;
+    right: 15px;
+    bottom: 14px;
+
+    min-height: 76px;
+
+    padding: 12px 15px;
+  }
+
+  .pd-post-info h2 {
+    font-size: 22px;
+  }
+
+  .pd-post-date {
+    font-size: 7px;
+  }
+
+  .pd-mood {
+    min-height: 26px;
+    font-size: 7px;
+  }
+
+  .pd-post-arrow {
+    width: 46px;
+    height: 46px;
+
+    top: 18px;
+    right: 18px;
+
+    font-size: 22px;
+  }
+
+
+  /* INSTAGRAM */
+  .pd-blog-instagram {
+    margin-top: 14px;
+    gap: 14px;
+  }
+
+  .pd-instagram-copy strong {
+    font-size: 16px;
+  }
+
+  .pd-instagram-copy span {
+    font-size: 12px;
+  }
+
+}
