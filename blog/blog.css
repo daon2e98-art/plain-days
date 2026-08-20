@@ -20,3 +20,100 @@ a{text-decoration:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:720px){.pd-blog-shell{width:min(100% - 28px,620px);padding:18px 0 36px}.pd-topline,.pd-storybar{font-size:8px;align-items:flex-start;gap:16px}.pd-topline span,.pd-storybar span{text-align:right}.pd-archive-hero{padding:42px 0 32px}.pd-archive-hero h1{font-size:48px}.pd-slot{height:80px}.pd-loaded{padding:0 15px;font-size:12px}.pd-tape-grid{grid-template-columns:1fr}.pd-tape{min-height:220px}.pd-window{top:75px}.pd-story-hero{padding:44px 0 34px}.pd-story-hero h1{font-size:46px}.pd-story-meta{flex-direction:column;gap:6px}.pd-story-image{height:66vw;min-height:250px}.pd-article-body{padding:42px 0}.pd-columns{grid-template-columns:1fr}.pd-article-body blockquote{font-size:24px}.pd-track-footer{align-items:center}}
 @media(max-width:430px){.pd-blog-shell{width:calc(100% - 20px)}.pd-archive-hero h1{font-size:42px}.pd-player{padding:13px;border-radius:20px}.pd-player-meta{font-size:7px}.pd-slot{height:72px}.pd-mini-reels i{width:24px;height:24px}.pd-monthline{margin-top:34px}.pd-tape{min-height:204px;padding:13px}.pd-window{top:68px;height:72px}.pd-reel{width:50px;height:50px}.pd-bridge{width:54px}.pd-story-hero h1{font-size:40px}.pd-story-hero p{font-size:16px}.pd-story-image{border-radius:18px}.pd-article-body p{font-size:15px}.pd-track-footer button{font-size:8px}}
+
+/* =================================
+   Plain Days Monthly Archive
+   ================================= */
+
+.pd-month-section{
+  position:relative;
+  margin-top:90px;
+  padding-top:40px;
+}
+
+
+/* subtle divider */
+.pd-month-section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:1px;
+  background:rgba(0,0,0,.12);
+}
+
+
+/* chapter + month title */
+.pd-monthline{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+}
+
+
+.pd-monthline small{
+  display:block;
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  opacity:.45;
+  margin-bottom:12px;
+}
+
+
+.pd-monthline b{
+  display:block;
+  font-family:inherit;
+  font-size:42px;
+  font-weight:500;
+  letter-spacing:-0.05em;
+  line-height:1;
+}
+
+
+.pd-monthline span{
+  font-size:11px;
+  letter-spacing:.22em;
+  opacity:.55;
+  padding-bottom:6px;
+}
+
+
+/* little editorial sentence */
+.pd-month-description{
+  margin-top:18px;
+  margin-bottom:45px;
+
+  font-size:15px;
+  font-style:italic;
+  letter-spacing:.03em;
+  opacity:.65;
+}
+
+
+/* tape grid spacing */
+.pd-month-section .pd-tape-grid{
+  margin-top:0;
+}
+
+
+/* mobile */
+@media(max-width:700px){
+
+  .pd-monthline{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+  }
+
+  .pd-monthline b{
+    font-size:34px;
+  }
+
+  .pd-month-description{
+    margin-bottom:30px;
+  }
+
+}
