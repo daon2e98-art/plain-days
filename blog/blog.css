@@ -130,4 +130,44 @@ a{text-decoration:none}
   object-fit:contain;
 }
 
+   /* Plain Days cassette sticker */
+
+.pd-tape-label{
+  position:relative;
+}
+
+
+.tape-sticker{
+  position:absolute;
+  top:-18px;
+  left:18px;
+
+  padding:6px 12px;
+
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(0,0,0,.08);
+
+  border-radius:999px;
+
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+
+  backdrop-filter:blur(10px);
+
+  transform:rotate(-4deg);
+
+  opacity:.8;
+}
+
+
+.pd-tape:hover .tape-sticker{
+  transform:rotate(0deg) translateY(-3px);
+}
+
+
+.pd-tape-label small{
+  letter-spacing:.18em;
+}
+
 }
