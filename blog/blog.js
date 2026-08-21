@@ -1,574 +1,666 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* =========================================
-     PLAIN DAYS MEMORY PLAYER
-  ========================================= */
-
-  const views = {
-    home: document.getElementById("mp3-home"),
-    menu: document.getElementById("mp3-menu"),
-    year: document.getElementById("mp3-year"),
-    month: document.getElementById("mp3-month"),
-    week01: document.getElementById("mp3-week01"),
-    week02: document.getElementById("mp3-week02"),
-    week03: document.getElementById("mp3-week03"),
-    week04: document.getElementById("mp3-week04")
-  };
-
-  const menuItems = {
-    menu: [...document.querySelectorAll("#mp3-menu .pd-menu-item")],
-    year: [...document.querySelectorAll("#mp3-year .pd-menu-item")],
-    month: [...document.querySelectorAll("#mp3-month .pd-menu-item")]
-  };
-
-  let currentView = "home";
-  let selectedIndex = 0;
+/* =========================================================
+   PLAIN DAYS — MEMORY PLAYER
+   Navigation / album selection / click sound
+========================================================= */
 
 
-  /* =========================================
-     SCREEN
-  ========================================= */
+/* =========================================================
+   DATA
+========================================================= */
 
-  function showView(name) {
+const weeks = {
 
-    Object.values(views).forEach(view => {
-      if (!view) return;
-      view.classList.remove("is-active");
-    });
+  "01": {
+    title: "little things",
+    date: "AUG 03 — WEEK 01",
+    description: "a week of refresh, laughter, museum days, food, and inspiration.",
+    image: "images/tapes/2026-08-week01.png",
+    url: "archive/2026/august/week01/",
+    track: "01 / 04"
+  },
 
-    if (views[name]) {
-      views[name].classList.add("is-active");
-      currentView = name;
-    }
+  "02": {
+    title: "lately",
+    date: "AUG 10 — WEEK 02",
+    description: "small objects, little rituals, and the things that quietly stayed with me.",
+    image: "images/tapes/2026-08-week02.png",
+    url: "archive/2026/august/week02/",
+    track: "02 / 04"
+  },
 
-    selectedIndex = 0;
-    updateSelection();
+  "03": {
+    title: "small joys",
+    date: "AUG 17 — WEEK 03",
+    description: "a few soft moments that made an ordinary week feel a little brighter.",
+    image: "images/03_wellness_morning.png",
+    url: "archive/2026/august/week03/",
+    track: "03 / 04"
+  },
+
+  "04": {
+    title: "a slow weekend",
+    date: "AUG 24 — WEEK 04",
+    description: "an afternoon that did not need to become anything more than what it already was.",
+    image: "images/04_slow_breakfast.png",
+    url: "archive/2026/august/week04/",
+    track: "04 / 04"
   }
 
+};
 
-  /* =========================================
-     MENU SELECTION
-  ========================================= */
 
-  function getCurrentItems() {
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-    if (currentView === "menu") {
-      return menuItems.menu;
-    }
+const device = document.getElementById("mp3Device");
 
-    if (currentView === "year") {
-      return menuItems.year;
-    }
+const wheel = document.getElementById("wheel");
 
-    if (currentView === "month") {
-      return menuItems.month;
-    }
+const prevButton = document.getElementById("prevButton");
 
-    return [];
+const nextButton = document.getElementById("nextButton");
+
+const albumImage = document.getElementById("albumImage");
+
+const albumTitle = document.getElementById("albumTitle");
+
+const albumDate = document.getElementById("albumDate");
+
+const albumDescription = document.getElementById("albumDescription");
+
+const albumTrack = document.getElementById("albumTrack");
+
+const playState = document.getElementById("playState");
+
+const albumTopLabel = document.getElementById("albumTopLabel");
+
+
+/* =========================================================
+   SCREEN MANAGEMENT
+========================================================= */
+
+const screens = {
+
+  home: document.getElementById("homeScreen"),
+
+  menu: document.getElementById("menuScreen"),
+
+  year: document.getElementById("yearScreen"),
+
+  month: document.getElementById("monthScreen"),
+
+  album: document.getElementById("albumScreen"),
+
+  about: document.getElementById("aboutScreen")
+
+};
+
+
+let currentScreen = "home";
+
+let currentWeek = "01";
+
+
+function showScreen(name){
+
+  Object.values(screens).forEach(screen => {
+
+    screen.classList.remove("is-active");
+
+  });
+
+
+  if(screens[name]){
+
+    screens[name].classList.add("is-active");
+
+    currentScreen = name;
+
   }
 
-
-  function updateSelection() {
-
-    const items = getCurrentItems();
-
-    items.forEach((item, index) => {
-      item.classList.toggle(
-        "is-selected",
-        index === selectedIndex
-      );
-    });
-  }
+}
 
 
-  function moveSelection(direction) {
+/* =========================================================
+   CLICK SOUND
+========================================================= */
 
-    const items = getCurrentItems();
+let audioContext = null;
 
-    if (!items.length) return;
 
-    selectedIndex += direction;
+function playClick(){
 
-    if (selectedIndex < 0) {
-      selectedIndex = items.length - 1;
+  try{
+
+    if(!audioContext){
+
+      audioContext =
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
     }
 
-    if (selectedIndex >= items.length) {
-      selectedIndex = 0;
-    }
 
-    updateSelection();
-    buttonClick();
-  }
+    if(audioContext.state === "suspended"){
 
-
-  /* =========================================
-     SELECT CURRENT ITEM
-  ========================================= */
-
-  function selectCurrent() {
-
-    const items = getCurrentItems();
-
-    if (!items.length) {
-
-      if (currentView === "home") {
-        showView("menu");
-        buttonClick();
-      }
-
-      return;
-    }
-
-    const selected = items[selectedIndex];
-
-    if (!selected) return;
-
-    const destination = selected.dataset.menu;
-
-    buttonClick();
-
-    if (destination === "archive") {
-      showView("year");
-      return;
-    }
-
-    if (destination === "august") {
-      showView("month");
-      return;
-    }
-
-    if (destination === "week01") {
-      showView("week01");
-      return;
-    }
-
-    if (destination === "week02") {
-      showView("week02");
-      return;
-    }
-
-    if (destination === "week03") {
-      showView("week03");
-      return;
-    }
-
-    if (destination === "week04") {
-      showView("week04");
-      return;
-    }
-  }
-
-
-  /* =========================================
-     GO BACK
-  ========================================= */
-
-  function goBack() {
-
-    buttonClick();
-
-    if (currentView === "home") {
-      return;
-    }
-
-    if (currentView === "menu") {
-      showView("home");
-      return;
-    }
-
-    if (currentView === "year") {
-      showView("menu");
-      return;
-    }
-
-    if (
-      currentView === "month"
-    ) {
-      showView("year");
-      return;
-    }
-
-    if (
-      currentView === "week01" ||
-      currentView === "week02" ||
-      currentView === "week03" ||
-      currentView === "week04"
-    ) {
-      showView("month");
-      return;
-    }
-  }
-
-
-  /* =========================================
-     WEEK PAGE
-  ========================================= */
-
-  function openCurrentWeek() {
-
-    const urls = {
-      week01: "archive/2026/august/week01/",
-      week02: "archive/2026/august/week02/",
-      week03: "archive/2026/august/week03/",
-      week04: "archive/2026/august/week04/"
-    };
-
-    const url = urls[currentView];
-
-    if (!url) return;
-
-    buttonClick();
-
-    window.location.href = url;
-  }
-
-
-  /* =========================================
-     BUTTON SOUND
-  ========================================= */
-
-  let audioContext = null;
-
-  function buttonClick() {
-
-    try {
-
-      if (!audioContext) {
-        audioContext =
-          new (
-            window.AudioContext ||
-            window.webkitAudioContext
-          )();
-      }
-
-      if (audioContext.state === "suspended") {
-        audioContext.resume();
-      }
-
-      const oscillator =
-        audioContext.createOscillator();
-
-      const gain =
-        audioContext.createGain();
-
-      oscillator.type = "square";
-
-      oscillator.frequency.setValueAtTime(
-        115,
-        audioContext.currentTime
-      );
-
-      oscillator.frequency.exponentialRampToValueAtTime(
-        72,
-        audioContext.currentTime + 0.045
-      );
-
-      gain.gain.setValueAtTime(
-        0.0001,
-        audioContext.currentTime
-      );
-
-      gain.gain.exponentialRampToValueAtTime(
-        0.08,
-        audioContext.currentTime + 0.005
-      );
-
-      gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        audioContext.currentTime + 0.055
-      );
-
-      oscillator.connect(gain);
-      gain.connect(audioContext.destination);
-
-      oscillator.start();
-      oscillator.stop(
-        audioContext.currentTime + 0.06
-      );
-
-    } catch (error) {
-
-      console.log(
-        "Button sound unavailable:",
-        error
-      );
+      audioContext.resume();
 
     }
-  }
 
 
-  /* =========================================
-     WHEEL BUTTONS
-  ========================================= */
+    const oscillator =
+      audioContext.createOscillator();
 
-  const upButton =
-    document.getElementById("up-button");
+    const gain =
+      audioContext.createGain();
 
-  const leftButton =
-    document.getElementById("left-button");
 
-  const rightButton =
-    document.getElementById("right-button");
+    oscillator.type = "sine";
 
-  const selectButton =
-    document.getElementById("select-button");
-
-  const playButton =
-    document.getElementById("play-button");
-
-  const prevButton =
-    document.getElementById("prev-button");
-
-  const nextButton =
-    document.getElementById("next-button");
-
-
-  upButton?.addEventListener(
-    "click",
-    () => moveSelection(-1)
-  );
-
-
-  leftButton?.addEventListener(
-    "click",
-    goBack
-  );
-
-
-  rightButton?.addEventListener(
-    "click",
-    () => moveSelection(1)
-  );
-
-
-  selectButton?.addEventListener(
-    "click",
-    selectCurrent
-  );
-
-
-  /* =========================================
-     PLAY BUTTON
-  ========================================= */
-
-  playButton?.addEventListener(
-    "click",
-    () => {
-
-      if (
-        currentView === "week01" ||
-        currentView === "week02" ||
-        currentView === "week03" ||
-        currentView === "week04"
-      ) {
-
-        openCurrentWeek();
-
-        return;
-      }
-
-      selectCurrent();
-
-    }
-  );
-
-
-  /* =========================================
-     SIDE PREVIOUS / NEXT
-  ========================================= */
-
-  const weeks = [
-    "week01",
-    "week02",
-    "week03",
-    "week04"
-  ];
-
-
-  prevButton?.addEventListener(
-    "click",
-    () => {
-
-      if (!weeks.includes(currentView)) {
-        goBack();
-        return;
-      }
-
-      let index =
-        weeks.indexOf(currentView);
-
-      index--;
-
-      if (index < 0) {
-        index = weeks.length - 1;
-      }
-
-      showView(weeks[index]);
-      buttonClick();
-    }
-  );
-
-
-  nextButton?.addEventListener(
-    "click",
-    () => {
-
-      if (!weeks.includes(currentView)) {
-        selectCurrent();
-        return;
-      }
-
-      let index =
-        weeks.indexOf(currentView);
-
-      index++;
-
-      if (index >= weeks.length) {
-        index = 0;
-      }
-
-      showView(weeks[index]);
-      buttonClick();
-    }
-  );
-
-
-  /* =========================================
-     MENU ITEM DIRECT CLICK
-  ========================================= */
-
-  document
-    .querySelectorAll(".pd-menu-item")
-    .forEach(item => {
-
-      item.addEventListener(
-        "click",
-        () => {
-
-          const parent =
-            item.closest(".pd-mp3-view");
-
-          if (!parent) return;
-
-          const items =
-            [...parent.querySelectorAll(".pd-menu-item")];
-
-          selectedIndex =
-            items.indexOf(item);
-
-          updateSelection();
-
-          selectCurrent();
-        }
-      );
-
-    });
-
-
-  /* =========================================
-     KEYBOARD CONTROL
-  ========================================= */
-
-  document.addEventListener(
-    "keydown",
-    event => {
-
-      if (event.key === "ArrowUp") {
-
-        event.preventDefault();
-
-        moveSelection(-1);
-
-      }
-
-      if (event.key === "ArrowDown") {
-
-        event.preventDefault();
-
-        moveSelection(1);
-
-      }
-
-      if (
-        event.key === "Enter" ||
-        event.key === " "
-      ) {
-
-        event.preventDefault();
-
-        selectCurrent();
-
-      }
-
-      if (event.key === "Escape") {
-
-        event.preventDefault();
-
-        goBack();
-
-      }
-
-    }
-  );
-
-
-  /* =========================================
-     SCREEN FOOTER MENU
-  ========================================= */
-
-  const screenFooter =
-    document.querySelector(
-      ".pd-screen-footer span:first-child"
+    oscillator.frequency.setValueAtTime(
+      110,
+      audioContext.currentTime
     );
 
-  screenFooter?.addEventListener(
-    "click",
-    () => {
 
-      buttonClick();
-      showView("menu");
+    oscillator.frequency.exponentialRampToValueAtTime(
+      72,
+      audioContext.currentTime + 0.045
+    );
+
+
+    gain.gain.setValueAtTime(
+      0.0001,
+      audioContext.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.12,
+      audioContext.currentTime + 0.004
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      audioContext.currentTime + 0.055
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(audioContext.destination);
+
+
+    oscillator.start();
+
+    oscillator.stop(
+      audioContext.currentTime + 0.06
+    );
+
+  }catch(error){
+
+    console.log("click sound unavailable");
+
+  }
+
+}
+
+
+/* =========================================================
+   SCREEN TRANSITION SOUND
+========================================================= */
+
+function navigate(name){
+
+  playClick();
+
+  showScreen(name);
+
+}
+
+
+/* =========================================================
+   MENU BUTTONS
+========================================================= */
+
+document.querySelectorAll(".menu-item[data-action]").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const action = button.dataset.action;
+
+
+    if(action === "archive"){
+
+      navigate("year");
 
     }
-  );
 
 
-  /* =========================================
-     CLOCK
-  ========================================= */
+    if(action === "august"){
 
-  function updateClock() {
+      navigate("month");
 
-    const clock =
-      document.getElementById("mp3-clock");
+    }
 
-    if (!clock) return;
 
-    const now = new Date();
+    if(action === "about"){
 
-    const hours =
-      String(now.getHours()).padStart(2, "0");
+      navigate("about");
 
-    const minutes =
-      String(now.getMinutes()).padStart(2, "0");
+    }
 
-    clock.textContent =
-      `${hours}:${minutes}`;
+  });
+
+});
+
+
+/* =========================================================
+   WEEK SELECTION
+========================================================= */
+
+document.querySelectorAll(".menu-item[data-week]").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const week = button.dataset.week;
+
+    loadWeek(week);
+
+  });
+
+});
+
+
+/* =========================================================
+   LOAD WEEK
+========================================================= */
+
+function loadWeek(week){
+
+  const data = weeks[week];
+
+  if(!data) return;
+
+
+  currentWeek = week;
+
+
+  albumImage.src = data.image;
+
+  albumImage.alt =
+    `Plain Days ${data.title}`;
+
+
+  albumTitle.textContent =
+    data.title;
+
+
+  albumDate.textContent =
+    data.date;
+
+
+  albumDescription.textContent =
+    data.description;
+
+
+  albumTrack.textContent =
+    data.track;
+
+
+  albumTopLabel.textContent =
+    "AUGUST 2026";
+
+
+  playState.textContent =
+    "READY";
+
+
+  device.classList.remove("is-playing");
+
+
+  navigate("album");
+
+}
+
+
+/* =========================================================
+   PLAY WEEK
+========================================================= */
+
+function playCurrentWeek(){
+
+  const data = weeks[currentWeek];
+
+  if(!data) return;
+
+
+  playClick();
+
+
+  device.classList.add("is-playing");
+
+  playState.textContent =
+    "PLAYING";
+
+
+  setTimeout(() => {
+
+    window.location.href =
+      data.url;
+
+  }, 180);
+
+}
+
+
+/* =========================================================
+   CENTER WHEEL
+========================================================= */
+
+wheel.addEventListener("click", (event) => {
+
+  const rect =
+    wheel.getBoundingClientRect();
+
+
+  const x =
+    event.clientX - rect.left;
+
+  const y =
+    event.clientY - rect.top;
+
+
+  const center =
+    rect.width / 2;
+
+
+  const distance =
+    Math.sqrt(
+      Math.pow(x - center, 2) +
+      Math.pow(y - center, 2)
+    );
+
+
+  /*
+    CENTER
+    SELECT / PLAY
+  */
+
+  if(distance < 28){
+
+    if(currentScreen === "album"){
+
+      playCurrentWeek();
+
+    }
+
+    else if(currentScreen === "home"){
+
+      navigate("menu");
+
+    }
+
+    else if(currentScreen === "menu"){
+
+      navigate("year");
+
+    }
+
+    else if(currentScreen === "year"){
+
+      navigate("month");
+
+    }
+
+    return;
+
   }
 
 
-  updateClock();
+  /*
+    TOP
+    MENU
+  */
 
-  setInterval(
-    updateClock,
-    30000
-  );
+  if(y < center - 35){
+
+    navigate("menu");
+
+    return;
+
+  }
 
 
-  /* =========================================
-     INITIAL STATE
-  ========================================= */
+  /*
+    LEFT
+    PREVIOUS
+  */
 
-  showView("home");
+  if(x < center - 35){
+
+    goPrevious();
+
+    return;
+
+  }
+
+
+  /*
+    RIGHT
+    NEXT
+  */
+
+  if(x > center + 35){
+
+    goNext();
+
+    return;
+
+  }
+
+
+  /*
+    BOTTOM
+    PLAY
+  */
+
+  if(y > center + 35){
+
+    if(currentScreen === "album"){
+
+      playCurrentWeek();
+
+    }
+
+  }
 
 });
+
+
+/* =========================================================
+   PREVIOUS BUTTON
+========================================================= */
+
+prevButton.addEventListener("click", () => {
+
+  goPrevious();
+
+});
+
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+nextButton.addEventListener("click", () => {
+
+  goNext();
+
+});
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function goPrevious(){
+
+  playClick();
+
+
+  if(currentScreen === "album"){
+
+    const number =
+      Math.max(
+        1,
+        Number(currentWeek) - 1
+      )
+      .toString()
+      .padStart(2, "0");
+
+
+    loadWeek(number);
+
+    return;
+
+  }
+
+
+  if(currentScreen === "month"){
+
+    navigate("year");
+
+    return;
+
+  }
+
+
+  if(currentScreen === "year"){
+
+    navigate("menu");
+
+    return;
+
+  }
+
+
+  if(currentScreen === "menu"){
+
+    navigate("home");
+
+    return;
+
+  }
+
+
+  if(currentScreen === "about"){
+
+    navigate("menu");
+
+  }
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function goNext(){
+
+  playClick();
+
+
+  if(currentScreen === "album"){
+
+    const number =
+      Math.min(
+        4,
+        Number(currentWeek) + 1
+      )
+      .toString()
+      .padStart(2, "0");
+
+
+    loadWeek(number);
+
+    return;
+
+  }
+
+
+  if(currentScreen === "home"){
+
+    navigate("menu");
+
+    return;
+
+  }
+
+
+  if(currentScreen === "menu"){
+
+    navigate("year");
+
+    return;
+
+  }
+
+
+  if(currentScreen === "year"){
+
+    navigate("month");
+
+    return;
+
+  }
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener("keydown", event => {
+
+  if(event.key === "ArrowLeft"){
+
+    goPrevious();
+
+  }
+
+
+  if(event.key === "ArrowRight"){
+
+    goNext();
+
+  }
+
+
+  if(event.key === "Enter"){
+
+    playClick();
+
+  }
+
+
+  if(event.key === "Escape"){
+
+    navigate("home");
+
+  }
+
+});
+
+
+/* =========================================================
+   START
+========================================================= */
+
+showScreen("home");
