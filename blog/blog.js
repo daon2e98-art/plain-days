@@ -1,13 +1,14 @@
 /* =========================================================
    PLAIN DAYS — MEMORY PLAYER
    MP3-style archive navigation
+   Weekly pages are served directly from GitHub Pages.
 ========================================================= */
 
 const weeks = {
-  "01": { title:"little things", date:"AUG 03 — WEEK 01", description:"a week of refresh, laughter, museum days, food, and inspiration.", image:"https://daon2e98-art.github.io/plain-days/blog/images/tapes/2026-08-week01.png", url:"https://plain-days.com/blog/archive/2026/august/week01/", track:"01 / 04" },
-  "02": { title:"lately", date:"AUG 10 — WEEK 02", description:"small objects, little rituals, and the things that quietly stayed with me.", image:"https://daon2e98-art.github.io/plain-days/blog/images/tapes/2026-08-week02.png", url:"https://plain-days.com/blog/archive/2026/august/week02/", track:"02 / 04" },
-  "03": { title:"small joys", date:"AUG 17 — WEEK 03", description:"a few soft moments that made an ordinary week feel a little brighter.", image:"https://daon2e98-art.github.io/plain-days/blog/images/03_wellness_morning.png", url:"https://plain-days.com/blog/archive/2026/august/week03/", track:"03 / 04" },
-  "04": { title:"a slow weekend", date:"AUG 24 — WEEK 04", description:"an afternoon that did not need to become anything more than what it already was.", image:"https://daon2e98-art.github.io/plain-days/blog/images/04_slow_breakfast.png", url:"https://plain-days.com/blog/archive/2026/august/week04/", track:"04 / 04" }
+  "01": { title:"little things", date:"AUG 03 — WEEK 01", description:"a week of refresh, laughter, museum days, food, and inspiration.", image:"https://daon2e98-art.github.io/plain-days/blog/images/tapes/2026-08-week01.png", url:"https://daon2e98-art.github.io/plain-days/blog/archive/2026/august/week01/", track:"01 / 04" },
+  "02": { title:"lately", date:"AUG 10 — WEEK 02", description:"small objects, little rituals, and the things that quietly stayed with me.", image:"https://daon2e98-art.github.io/plain-days/blog/images/tapes/2026-08-week02.png", url:"https://daon2e98-art.github.io/plain-days/blog/archive/2026/august/week02/", track:"02 / 04" },
+  "03": { title:"small joys", date:"AUG 17 — WEEK 03", description:"a few soft moments that made an ordinary week feel a little brighter.", image:"https://daon2e98-art.github.io/plain-days/blog/images/03_wellness_morning.png", url:"https://daon2e98-art.github.io/plain-days/blog/archive/2026/august/week03/", track:"03 / 04" },
+  "04": { title:"a slow weekend", date:"AUG 24 — WEEK 04", description:"an afternoon that did not need to become anything more than what it already was.", image:"https://daon2e98-art.github.io/plain-days/blog/images/04_slow_breakfast.png", url:"https://daon2e98-art.github.io/plain-days/blog/archive/2026/august/week04/", track:"04 / 04" }
 };
 
 const device = document.getElementById("mp3Device");
