@@ -252,8 +252,11 @@ function playCurrentWeek(){
   device.classList.add("is-playing");
   playState.textContent = "PLAYING";
 
+  /* PLAY opens the selected week's real archive page. */
+  const targetUrl = data.url;
+
   setTimeout(() => {
-    window.location.href = data.url;
+    window.location.assign(targetUrl);
   }, 220);
 }
 
