@@ -1,8 +1,3 @@
-/* =========================================================
-   PLAIN DAYS — MEMORY PLAYER
-   Vintage MP3 / minimal editorial
-========================================================= */
-
 :root{
   --bg:#e9ebe8;
   --device:#f4f4f1;
@@ -11,26 +6,26 @@
   --ink:#222522;
   --muted:#777c77;
   --line:rgba(30,35,31,.16);
-  --soft-shadow:rgba(35,40,36,.16);
 }
 
 *{
   box-sizing:border-box;
 }
 
-html{
+html,
+body{
+  margin:0;
   min-height:100%;
 }
 
 body{
-  margin:0;
-  min-height:100vh;
 
   background:
     radial-gradient(
-      circle at 50% 30%,
+      circle at 50% 25%,
       #ffffff 0%,
-      var(--bg) 75%
+      #f5f6f4 42%,
+      var(--bg) 100%
     );
 
   color:var(--ink);
@@ -51,13 +46,15 @@ body{
 ========================================================= */
 
 .pd-player-page{
+
   min-height:100vh;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
-  padding:60px 24px;
+  padding:24px 20px;
 }
 
 
@@ -65,41 +62,34 @@ body{
    DEVICE
 ========================================================= */
 
-.pd-mp3{
-  width:min(440px, 100%);
-}
-
-
 .mp3-device{
 
   position:relative;
 
-  width:100%;
+  width:min(430px, 100%);
 
-  padding:22px 22px 20px;
+  padding:20px 20px 18px;
 
-  border-radius:34px;
+  border-radius:32px;
 
   background:
     linear-gradient(
       145deg,
       #ffffff 0%,
-      #f1f1ee 45%,
-      #dfe1de 100%
+      #f1f1ee 48%,
+      #dedfdd 100%
     );
 
   border:1px solid rgba(255,255,255,.95);
 
   box-shadow:
-    0 40px 90px rgba(30,35,31,.18),
-    0 8px 25px rgba(30,35,31,.10),
+    0 35px 80px rgba(30,35,31,.16),
+    0 8px 24px rgba(30,35,31,.08),
     inset 0 1px 0 rgba(255,255,255,.95);
 
   overflow:hidden;
 }
 
-
-/* subtle plastic reflection */
 
 .mp3-device::before{
 
@@ -111,16 +101,14 @@ body{
 
   pointer-events:none;
 
-  border-radius:34px;
+  border-radius:32px;
 
   background:
     linear-gradient(
       120deg,
       rgba(255,255,255,.55),
-      transparent 35%
+      transparent 38%
     );
-
-  opacity:.8;
 }
 
 
@@ -131,15 +119,17 @@ body{
 .mp3-top{
 
   position:relative;
+
   z-index:2;
 
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
+  align-items:center;
 
-  padding:2px 8px 17px;
+  padding:0 7px 14px;
 
-  font-size:9px;
+  font-size:8px;
 
   letter-spacing:.22em;
 
@@ -153,8 +143,7 @@ body{
 
 
 .mp3-model{
-  opacity:.55;
-  font-size:8px;
+  opacity:.5;
 }
 
 
@@ -168,33 +157,31 @@ body{
 
   width:100%;
 
-  aspect-ratio:1 / 1.03;
+  height:390px;
 
   overflow:hidden;
 
-  border-radius:15px;
+  border-radius:14px;
 
   background:
     linear-gradient(
       145deg,
-      #dfe3df,
-      #cdd1ce
+      #e4e7e4,
+      #ccd0cd
     );
 
-  border:7px solid #3e423f;
+  border:6px solid #3d413e;
 
   box-shadow:
-
     inset 0 0 0 1px rgba(255,255,255,.35),
-
     inset 0 12px 30px rgba(0,0,0,.08),
-
     0 4px 8px rgba(0,0,0,.18);
-
 }
 
 
-/* screen glass */
+/* =========================================================
+   SCREEN GLASS
+========================================================= */
 
 .mp3-screen::after{
 
@@ -206,16 +193,16 @@ body{
 
   pointer-events:none;
 
+  z-index:20;
+
   background:
     linear-gradient(
       125deg,
-      rgba(255,255,255,.24),
-      transparent 32%,
+      rgba(255,255,255,.22),
+      transparent 35%,
       transparent 70%,
       rgba(255,255,255,.08)
     );
-
-  mix-blend-mode:screen;
 }
 
 
@@ -229,7 +216,7 @@ body{
 
   inset:0;
 
-  padding:16px;
+  padding:15px;
 
   display:none;
 
@@ -240,15 +227,33 @@ body{
   background:
     linear-gradient(
       180deg,
-      rgba(244,246,243,.86),
-      rgba(207,212,208,.72)
+      rgba(244,246,243,.9),
+      rgba(207,212,208,.78)
     );
-
 }
 
 
 .screen-view.is-active{
+
   display:flex;
+
+  animation:
+    screenIn .18s ease-out;
+}
+
+
+@keyframes screenIn{
+
+  from{
+    opacity:0;
+    transform:translateX(8px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+
 }
 
 
@@ -261,16 +266,15 @@ body{
   display:flex;
 
   justify-content:space-between;
-
   align-items:center;
 
-  padding-bottom:10px;
+  padding-bottom:9px;
 
   border-bottom:1px solid var(--line);
 
   font-size:8px;
 
-  letter-spacing:.16em;
+  letter-spacing:.15em;
 
   color:#555a55;
 }
@@ -289,11 +293,9 @@ body{
   flex-direction:column;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
-
 }
 
 
@@ -304,14 +306,13 @@ body{
     "Times New Roman",
     serif;
 
-  font-size:45px;
+  font-size:46px;
 
-  line-height:.78;
+  line-height:.76;
 
   letter-spacing:-.08em;
 
   font-weight:400;
-
 }
 
 
@@ -340,8 +341,6 @@ body{
 
   justify-content:space-between;
 
-  align-items:center;
-
   font-size:8px;
 
   letter-spacing:.14em;
@@ -351,16 +350,16 @@ body{
 
 
 /* =========================================================
-   MENU LIST
+   MENU
 ========================================================= */
 
 .menu-list{
 
   flex:1;
 
-  padding-top:15px;
+  padding-top:12px;
 
-  overflow:hidden;
+  overflow:auto;
 }
 
 
@@ -378,11 +377,11 @@ body{
 
   color:var(--ink);
 
-  padding:13px 8px;
+  padding:13px 7px;
 
   display:grid;
 
-  grid-template-columns:28px 1fr auto;
+  grid-template-columns:27px 1fr auto;
 
   align-items:center;
 
@@ -396,7 +395,7 @@ body{
 
   transition:
     background .16s ease,
-    transform .16s ease;
+    transform .12s ease;
 }
 
 
@@ -408,76 +407,66 @@ body{
 }
 
 
+.menu-item div{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:4px;
+}
+
+
 .menu-item b{
 
-  font-size:12px;
+  font-size:11px;
 
   font-weight:500;
 
-  letter-spacing:.08em;
+  letter-spacing:.07em;
 }
 
 
 .menu-item small{
 
-  grid-column:2;
-
-  margin-top:-4px;
-
   font-size:7px;
 
   color:#777c77;
 
-  letter-spacing:.05em;
+  letter-spacing:.03em;
 }
 
 
 .menu-item > span:last-child{
 
-  font-size:15px;
+  font-size:16px;
 
   color:#666b66;
 }
 
 
-.menu-item.is-selected{
-
-  background:rgba(255,255,255,.58);
-
-  box-shadow:
-    inset 3px 0 0 #565b56;
-}
-
-
 .menu-item:hover{
 
-  background:rgba(255,255,255,.48);
+  background:rgba(255,255,255,.45);
 }
 
 
 .menu-item:active{
 
   transform:translateY(1px);
-}
 
-
-.menu-item:disabled{
-
-  opacity:.35;
-
-  cursor:default;
 }
 
 
 .screen-hint{
 
-  padding-top:10px;
+  padding-top:9px;
 
   border-top:1px solid var(--line);
 
   font-size:7px;
 
-  letter-spacing:.14em;
+  letter-spacing:.13em;
 
   color:#777c77;
 }
@@ -501,24 +490,24 @@ body{
 
   text-align:center;
 
-  padding:12px 0;
+  padding:8px 0;
 }
 
 
 .album-cover{
 
-  width:min(210px, 70%);
+  width:min(205px, 66%);
 
   aspect-ratio:1;
 
   overflow:hidden;
 
-  border-radius:5px;
+  border-radius:4px;
 
   background:#ddd;
 
   box-shadow:
-    0 8px 18px rgba(0,0,0,.18),
+    0 8px 18px rgba(0,0,0,.17),
     0 0 0 1px rgba(255,255,255,.7);
 }
 
@@ -542,7 +531,7 @@ body{
 
   align-items:center;
 
-  margin-top:15px;
+  margin-top:14px;
 
   max-width:90%;
 }
@@ -577,11 +566,15 @@ body{
 
 .album-info small{
 
-  margin-top:8px;
+  margin-top:7px;
+
+  max-width:260px;
 
   font-size:7px;
 
-  letter-spacing:.13em;
+  line-height:1.5;
+
+  letter-spacing:.06em;
 
   color:#777c77;
 }
@@ -672,12 +665,13 @@ body{
 
 
 /* =========================================================
-   PHYSICAL CONTROLS
+   CONTROLS
 ========================================================= */
 
 .mp3-controls{
 
   position:relative;
+
   z-index:3;
 
   display:flex;
@@ -685,16 +679,16 @@ body{
   align-items:center;
   justify-content:center;
 
-  gap:22px;
+  gap:20px;
 
-  padding:24px 0 20px;
+  padding:20px 0 17px;
 }
 
 
 .mp3-button{
 
-  width:45px;
-  height:45px;
+  width:43px;
+  height:43px;
 
   border-radius:50%;
 
@@ -715,7 +709,7 @@ body{
 
   cursor:pointer;
 
-  font-size:9px;
+  font-size:8px;
 
   transition:
     transform .1s ease,
@@ -734,15 +728,15 @@ body{
 
 
 /* =========================================================
-   CENTER WHEEL
+   WHEEL
 ========================================================= */
 
 .mp3-wheel{
 
   position:relative;
 
-  width:145px;
-  height:145px;
+  width:125px;
+  height:125px;
 
   border:0;
 
@@ -776,8 +770,6 @@ body{
 }
 
 
-/* center button */
-
 .wheel-center{
 
   position:absolute;
@@ -785,8 +777,8 @@ body{
   top:50%;
   left:50%;
 
-  width:48px;
-  height:48px;
+  width:46px;
+  height:46px;
 
   transform:translate(-50%,-50%);
 
@@ -808,19 +800,17 @@ body{
     0 2px 5px rgba(0,0,0,.12),
     inset 0 1px 1px rgba(255,255,255,.9);
 
-  font-size:8px;
+  font-size:7px;
 
   color:#777c77;
 }
 
 
-/* MENU */
-
 .wheel-menu{
 
   position:absolute;
 
-  top:18px;
+  top:16px;
   left:50%;
 
   transform:translateX(-50%);
@@ -831,43 +821,37 @@ body{
 }
 
 
-/* previous */
-
 .wheel-left{
 
   position:absolute;
 
-  left:19px;
+  left:17px;
   top:50%;
 
   transform:translateY(-50%);
 
-  font-size:10px;
+  font-size:9px;
 }
 
-
-/* next */
 
 .wheel-right{
 
   position:absolute;
 
-  right:19px;
+  right:17px;
   top:50%;
 
   transform:translateY(-50%);
 
-  font-size:10px;
+  font-size:9px;
 }
 
-
-/* play */
 
 .wheel-bottom{
 
   position:absolute;
 
-  bottom:17px;
+  bottom:15px;
   left:50%;
 
   transform:translateX(-50%);
@@ -877,7 +861,7 @@ body{
 
 
 /* =========================================================
-   DEVICE FOOTER
+   FOOTER
 ========================================================= */
 
 .mp3-bottom{
@@ -887,7 +871,7 @@ body{
   align-items:center;
   justify-content:space-between;
 
-  padding:0 8px;
+  padding:0 7px;
 
   color:#777c77;
 
@@ -898,26 +882,7 @@ body{
 
 
 /* =========================================================
-   HIDDEN LINKS
-========================================================= */
-
-.pd-hidden-links{
-
-  position:absolute;
-
-  width:1px;
-  height:1px;
-
-  overflow:hidden;
-
-  opacity:0;
-
-  pointer-events:none;
-}
-
-
-/* =========================================================
-   PLAYING STATE
+   PLAYING
 ========================================================= */
 
 .mp3-device.is-playing .wheel-bottom{
@@ -931,7 +896,7 @@ body{
 
   0%,
   100%{
-    opacity:.45;
+    opacity:.4;
   }
 
   50%{
@@ -942,40 +907,14 @@ body{
 
 
 /* =========================================================
-   SCREEN TRANSITION
-========================================================= */
-
-.screen-view.is-entering{
-
-  animation:
-    screenIn .18s ease-out;
-}
-
-
-@keyframes screenIn{
-
-  from{
-    opacity:0;
-    transform:translateX(8px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width:600px){
 
   .pd-player-page{
 
-    padding:25px 15px;
+    padding:15px;
 
     align-items:center;
   }
@@ -983,31 +922,48 @@ body{
 
   .mp3-device{
 
-    border-radius:28px;
+    padding:16px;
 
-    padding:17px 17px 16px;
+    border-radius:27px;
   }
 
 
   .mp3-screen{
 
+    height:350px;
+
     border-width:6px;
 
-    border-radius:13px;
+    border-radius:12px;
   }
 
 
   .mp3-wheel{
 
-    width:125px;
-    height:125px;
+    width:112px;
+    height:112px;
   }
 
 
   .wheel-center{
 
-    width:42px;
-    height:42px;
+    width:41px;
+    height:41px;
+  }
+
+
+  .mp3-controls{
+
+    gap:14px;
+
+    padding-top:17px;
+  }
+
+
+  .mp3-button{
+
+    width:39px;
+    height:39px;
   }
 
 
@@ -1019,22 +975,7 @@ body{
 
   .home-logo{
 
-    font-size:38px;
-  }
-
-
-  .mp3-controls{
-
-    gap:15px;
-
-    padding-top:20px;
-  }
-
-
-  .mp3-button{
-
-    width:40px;
-    height:40px;
+    font-size:39px;
   }
 
 }
@@ -1044,72 +985,27 @@ body{
 
   .mp3-device{
 
-    padding:14px;
+    padding:13px;
+  }
+
+
+  .mp3-screen{
+
+    height:325px;
   }
 
 
   .mp3-wheel{
 
-    width:108px;
-    height:108px;
+    width:102px;
+    height:102px;
   }
 
 
   .wheel-center{
 
-    width:38px;
-    height:38px;
+    width:37px;
+    height:37px;
   }
 
-
-  .wheel-menu{
-    top:14px;
-  }
-
-
-  .wheel-bottom{
-    bottom:13px;
-  }
-
-
-  .wheel-left{
-    left:14px;
-  }
-
-
-  .wheel-right{
-    right:14px;
-  }
-
-}
-
-/* =========================
-   PLAIN DAYS MP3 LAYOUT
-   Compact vertical spacing
-========================= */
-
-.pd-blog-shell {
-  padding-top: 24px;
-  padding-bottom: 40px;
-}
-
-.pd-archive-hero {
-  margin-top: 38px;
-  margin-bottom: 42px;
-}
-
-.pd-player {
-  margin-top: 0;
-  margin-bottom: 58px;
-}
-
-.pd-month-section {
-  margin-top: 0;
-  padding-top: 0;
-  padding-bottom: 20px;
-}
-
-.pd-instruction {
-  margin-top: 18px;
-  margin-bottom: 20px;
 }
