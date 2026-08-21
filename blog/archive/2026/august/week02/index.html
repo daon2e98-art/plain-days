@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,57 @@
 </head>
 <body>
 <div class="page">
-<header>
-<div class="logo">PLAIN DAYS</div>
-<h1>WEEK.02</h1>
-<p>little conversations<br>with my week.</p>
+<header class="week-header">
+  <div class="header-top"><span class="logo">PLAIN DAYS</span><span>08 / 2026</span></div>
+  <div class="header-main">
+    <div>
+      <p class="eyebrow">WEEKLY NOTE · AUG 10 — 16</p>
+      <h1>lately<span>.</span></h1>
+      <p class="intro">small objects, little rituals,<br>and the things that quietly stayed with me.</p>
+    </div>
+    <div class="week-stamp"><b>02</b><span>OF 04</span></div>
+  </div>
 </header>
+
 <main class="memory-board">
-<div class="sticker spider" data-message="스파이더맨 보러 왔다 🕷️\n오랜만에 영화관 와서 좋았어."><img src="images/spiderman.png"></div>
-<div class="sticker gamjatang" data-message="남편이랑 같이 먹은 감자탕.\n같이 밥 먹는 시간이 참 좋았다."><img src="images/food_gamjatang.png"></div>
-<div class="sticker gwangheo" data-message="내가 직접 만든\n깻잎 들기름 광어무침 🤍"><img src="images/gwangheo.png"></div>
-<div class="sticker pasta" data-message="남편이 만들어준 봉골레 파스타.\n같이 요리하는 시간이 좋았다."><img src="images/pasta.png"></div>
-<div class="sticker soju" data-message="맛있는 음식과 함께한\n작은 저녁 시간."><img src="images/soju.png"></div>
-<div class="sticker starbucks" data-message="일과 삶이 너무 붙어있는 것 같아서\n혼자만의 시간을 가지러 나왔다."><img src="images/starbucks.png"></div>
-<div class="sticker handwash" data-message="향이 너무 좋아서\n기억하고 싶었던 작은 취향."><img src="images/handwash.png"></div>
+  <div class="paper-note note-one">things I want<br>to remember.</div>
+  <div class="paper-note note-two">late summer<br>felt soft this week.</div>
+  <div class="tiny-sticker star-one">✦</div>
+  <div class="tiny-sticker heart-one">♡</div>
+  <div class="tiny-sticker dot-one">•</div>
+  <div class="tiny-sticker star-two">✦</div>
+  <div class="date-label label-spider">AUG 10 / MON</div>
+  <div class="date-label label-gwangheo">AUG 11 / TUE</div>
+  <div class="date-label label-pasta">AUG 12 / WED</div>
+  <div class="date-label label-soju">AUG 12 / NIGHT</div>
+  <div class="date-label label-starbucks">AUG 14 / FRI</div>
+  <div class="date-label label-gamjatang">AUG 15 / SAT</div>
+  <div class="date-label label-handwash">AUG 16 / SUN</div>
+
+  <div class="sticker spider" data-message="스파이더맨 보러 왔다 🕷️\n오랜만에 영화관 와서 좋았어."><img src="images/spiderman.png" alt="Spider-Man"></div>
+  <div class="sticker gamjatang" data-message="남편이랑 같이 먹은 감자탕.\n같이 밥 먹는 시간이 참 좋았다."><img src="images/food_gamjatang.png" alt="Gamjatang"></div>
+  <div class="sticker gwangheo" data-message="내가 직접 만든\n깻잎 들기름 광어무침 🤍"><img src="images/gwangheo.png" alt="Gwangheo salad"></div>
+  <div class="sticker pasta" data-message="남편이 만들어준 봉골레 파스타.\n같이 요리하는 시간이 좋았다."><img src="images/pasta.png" alt="Vongole pasta"></div>
+  <div class="sticker soju" data-message="맛있는 음식과 함께한\n작은 저녁 시간."><img src="images/soju.png" alt="Soju"></div>
+  <div class="sticker starbucks" data-message="일과 삶이 너무 붙어있는 것 같아서\n혼자만의 시간을 가지러 나왔다."><img src="images/starbucks.png" alt="Starbucks sandwich"></div>
+  <div class="sticker handwash" data-message="향이 너무 좋아서\n기억하고 싶었던 작은 취향."><img src="images/handwash.png" alt="Hand cleanser"></div>
+
+  <div class="sky-note">
+    <span class="sky-mark">○</span>
+    <b>one beautiful thing</b>
+    <p>the late-summer sky<br>was especially beautiful.</p>
+  </div>
 </main>
-<section class="chat-box"><div class="chat-title">What do you want to remember today?</div><div id="messages"></div></section>
+
+<section class="memory-footer">
+  <div><span>PLAIN DAYS / WEEK 02</span><b>lately.</b></div>
+  <div><span>07 LITTLE THINGS</span><span>click a photo to remember it</span></div>
+</section>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-title">What do you want to remember today?</div>
+  <div id="messages"></div>
+</div>
 </div>
 <script src="script.js"></script>
 </body>
