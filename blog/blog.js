@@ -1,63 +1,574 @@
-const tapes=[...document.querySelectorAll('.pd-tape')];
-const player=document.getElementById('player');
-const playerState=document.getElementById('player-state');
-const loadedTitle=document.getElementById('loaded-title');
-const instruction=document.getElementById('instruction');
-const playButton=document.getElementById('play-button');
-const archiveScreen=document.getElementById('archive-screen');
-const storyScreen=document.getElementById('story-screen');
-const backButton=document.getElementById('back-button');
-const nextTrack=document.getElementById('next-track');
-const tapeGuide=document.getElementById('tape-guide');
-let selected=null;
+document.addEventListener("DOMContentLoaded", () => {
 
-const tapeGuideBubble=document.querySelector('.pd-tape-guide');
-if(tapeGuideBubble){tapeGuideBubble.innerHTML='<strong>START HERE ✦</strong>choose a cassette first';}
+  /* =========================================
+     PLAIN DAYS MEMORY PLAYER
+  ========================================= */
 
-const playGuide=document.createElement('div');
-playGuide.className='pd-play-guide';
-playGuide.innerHTML='<strong>NEXT ✦</strong><br>then press ▶ to read';
-playButton.parentElement.appendChild(playGuide);
+  const views = {
+    home: document.getElementById("mp3-home"),
+    menu: document.getElementById("mp3-menu"),
+    year: document.getElementById("mp3-year"),
+    month: document.getElementById("mp3-month"),
+    week01: document.getElementById("mp3-week01"),
+    week02: document.getElementById("mp3-week02"),
+    week03: document.getElementById("mp3-week03"),
+    week04: document.getElementById("mp3-week04")
+  };
 
-function hidePlayGuide(){playGuide.classList.remove('is-visible');playButton.classList.remove('is-guide-target');}
-function showPlayGuide(){playGuide.classList.add('is-visible');playButton.classList.add('is-guide-target');}
+  const menuItems = {
+    menu: [...document.querySelectorAll("#mp3-menu .pd-menu-item")],
+    year: [...document.querySelectorAll("#mp3-year .pd-menu-item")],
+    month: [...document.querySelectorAll("#mp3-month .pd-menu-item")]
+  };
 
-function selectTape(tape){
- tapes.forEach(t=>t.classList.remove('is-active'));
- tape.classList.add('is-active');
- selected=tape;
- if(tapeGuide)tapeGuide.classList.add('is-hidden');
- hidePlayGuide();
- player.classList.remove('is-playing');
- playerState.textContent='LOADING TAPE';
- loadedTitle.textContent=`AUG / ${tape.dataset.track} · inserting…`;
- instruction.textContent='tape selected · press play to read';
- setTimeout(()=>{player.classList.add('is-playing');playerState.textContent=`READY / TRACK ${tape.dataset.track}`;loadedTitle.textContent=tape.dataset.title;showPlayGuide();},380);
-}
+  let currentView = "home";
+  let selectedIndex = 0;
 
-function openStory(){
- if(!selected){instruction.textContent='choose a tape first.';return;}
- hidePlayGuide();
- if(selected.dataset.url){
-  playerState.textContent=`PLAYING / TRACK ${selected.dataset.track}`;
-  instruction.textContent='opening journal…';
-  setTimeout(()=>window.location.href=selected.dataset.url,220);
-  return;
- }
- document.getElementById('now-playing').textContent=`NOW PLAYING — AUG / TRACK ${selected.dataset.track}`;
- document.getElementById('story-date').textContent=selected.dataset.date;
- document.getElementById('story-title').textContent=`${selected.dataset.title}.`;
- document.getElementById('story-lead').textContent=selected.dataset.copy;
- document.getElementById('footer-track').textContent=`AUG / ${selected.dataset.track}`;
- const storyImage=document.getElementById('story-image');
- storyImage.src=selected.dataset.image;
- storyImage.alt=selected.dataset.title;
- archiveScreen.classList.remove('is-active');
- storyScreen.classList.add('is-active');
- window.scrollTo({top:0,behavior:'smooth'});
-}
 
-tapes.forEach(tape=>tape.addEventListener('click',()=>selectTape(tape)));
-playButton.addEventListener('click',openStory);
-backButton.addEventListener('click',()=>{storyScreen.classList.remove('is-active');archiveScreen.classList.add('is-active');hidePlayGuide();window.scrollTo({top:0,behavior:'smooth'});});
-nextTrack.addEventListener('click',()=>{if(!selected)return;const index=tapes.indexOf(selected);selectTape(tapes[(index+1)%tapes.length]);setTimeout(openStory,430);});
+  /* =========================================
+     SCREEN
+  ========================================= */
+
+  function showView(name) {
+
+    Object.values(views).forEach(view => {
+      if (!view) return;
+      view.classList.remove("is-active");
+    });
+
+    if (views[name]) {
+      views[name].classList.add("is-active");
+      currentView = name;
+    }
+
+    selectedIndex = 0;
+    updateSelection();
+  }
+
+
+  /* =========================================
+     MENU SELECTION
+  ========================================= */
+
+  function getCurrentItems() {
+
+    if (currentView === "menu") {
+      return menuItems.menu;
+    }
+
+    if (currentView === "year") {
+      return menuItems.year;
+    }
+
+    if (currentView === "month") {
+      return menuItems.month;
+    }
+
+    return [];
+  }
+
+
+  function updateSelection() {
+
+    const items = getCurrentItems();
+
+    items.forEach((item, index) => {
+      item.classList.toggle(
+        "is-selected",
+        index === selectedIndex
+      );
+    });
+  }
+
+
+  function moveSelection(direction) {
+
+    const items = getCurrentItems();
+
+    if (!items.length) return;
+
+    selectedIndex += direction;
+
+    if (selectedIndex < 0) {
+      selectedIndex = items.length - 1;
+    }
+
+    if (selectedIndex >= items.length) {
+      selectedIndex = 0;
+    }
+
+    updateSelection();
+    buttonClick();
+  }
+
+
+  /* =========================================
+     SELECT CURRENT ITEM
+  ========================================= */
+
+  function selectCurrent() {
+
+    const items = getCurrentItems();
+
+    if (!items.length) {
+
+      if (currentView === "home") {
+        showView("menu");
+        buttonClick();
+      }
+
+      return;
+    }
+
+    const selected = items[selectedIndex];
+
+    if (!selected) return;
+
+    const destination = selected.dataset.menu;
+
+    buttonClick();
+
+    if (destination === "archive") {
+      showView("year");
+      return;
+    }
+
+    if (destination === "august") {
+      showView("month");
+      return;
+    }
+
+    if (destination === "week01") {
+      showView("week01");
+      return;
+    }
+
+    if (destination === "week02") {
+      showView("week02");
+      return;
+    }
+
+    if (destination === "week03") {
+      showView("week03");
+      return;
+    }
+
+    if (destination === "week04") {
+      showView("week04");
+      return;
+    }
+  }
+
+
+  /* =========================================
+     GO BACK
+  ========================================= */
+
+  function goBack() {
+
+    buttonClick();
+
+    if (currentView === "home") {
+      return;
+    }
+
+    if (currentView === "menu") {
+      showView("home");
+      return;
+    }
+
+    if (currentView === "year") {
+      showView("menu");
+      return;
+    }
+
+    if (
+      currentView === "month"
+    ) {
+      showView("year");
+      return;
+    }
+
+    if (
+      currentView === "week01" ||
+      currentView === "week02" ||
+      currentView === "week03" ||
+      currentView === "week04"
+    ) {
+      showView("month");
+      return;
+    }
+  }
+
+
+  /* =========================================
+     WEEK PAGE
+  ========================================= */
+
+  function openCurrentWeek() {
+
+    const urls = {
+      week01: "archive/2026/august/week01/",
+      week02: "archive/2026/august/week02/",
+      week03: "archive/2026/august/week03/",
+      week04: "archive/2026/august/week04/"
+    };
+
+    const url = urls[currentView];
+
+    if (!url) return;
+
+    buttonClick();
+
+    window.location.href = url;
+  }
+
+
+  /* =========================================
+     BUTTON SOUND
+  ========================================= */
+
+  let audioContext = null;
+
+  function buttonClick() {
+
+    try {
+
+      if (!audioContext) {
+        audioContext =
+          new (
+            window.AudioContext ||
+            window.webkitAudioContext
+          )();
+      }
+
+      if (audioContext.state === "suspended") {
+        audioContext.resume();
+      }
+
+      const oscillator =
+        audioContext.createOscillator();
+
+      const gain =
+        audioContext.createGain();
+
+      oscillator.type = "square";
+
+      oscillator.frequency.setValueAtTime(
+        115,
+        audioContext.currentTime
+      );
+
+      oscillator.frequency.exponentialRampToValueAtTime(
+        72,
+        audioContext.currentTime + 0.045
+      );
+
+      gain.gain.setValueAtTime(
+        0.0001,
+        audioContext.currentTime
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        0.08,
+        audioContext.currentTime + 0.005
+      );
+
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioContext.currentTime + 0.055
+      );
+
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+
+      oscillator.start();
+      oscillator.stop(
+        audioContext.currentTime + 0.06
+      );
+
+    } catch (error) {
+
+      console.log(
+        "Button sound unavailable:",
+        error
+      );
+
+    }
+  }
+
+
+  /* =========================================
+     WHEEL BUTTONS
+  ========================================= */
+
+  const upButton =
+    document.getElementById("up-button");
+
+  const leftButton =
+    document.getElementById("left-button");
+
+  const rightButton =
+    document.getElementById("right-button");
+
+  const selectButton =
+    document.getElementById("select-button");
+
+  const playButton =
+    document.getElementById("play-button");
+
+  const prevButton =
+    document.getElementById("prev-button");
+
+  const nextButton =
+    document.getElementById("next-button");
+
+
+  upButton?.addEventListener(
+    "click",
+    () => moveSelection(-1)
+  );
+
+
+  leftButton?.addEventListener(
+    "click",
+    goBack
+  );
+
+
+  rightButton?.addEventListener(
+    "click",
+    () => moveSelection(1)
+  );
+
+
+  selectButton?.addEventListener(
+    "click",
+    selectCurrent
+  );
+
+
+  /* =========================================
+     PLAY BUTTON
+  ========================================= */
+
+  playButton?.addEventListener(
+    "click",
+    () => {
+
+      if (
+        currentView === "week01" ||
+        currentView === "week02" ||
+        currentView === "week03" ||
+        currentView === "week04"
+      ) {
+
+        openCurrentWeek();
+
+        return;
+      }
+
+      selectCurrent();
+
+    }
+  );
+
+
+  /* =========================================
+     SIDE PREVIOUS / NEXT
+  ========================================= */
+
+  const weeks = [
+    "week01",
+    "week02",
+    "week03",
+    "week04"
+  ];
+
+
+  prevButton?.addEventListener(
+    "click",
+    () => {
+
+      if (!weeks.includes(currentView)) {
+        goBack();
+        return;
+      }
+
+      let index =
+        weeks.indexOf(currentView);
+
+      index--;
+
+      if (index < 0) {
+        index = weeks.length - 1;
+      }
+
+      showView(weeks[index]);
+      buttonClick();
+    }
+  );
+
+
+  nextButton?.addEventListener(
+    "click",
+    () => {
+
+      if (!weeks.includes(currentView)) {
+        selectCurrent();
+        return;
+      }
+
+      let index =
+        weeks.indexOf(currentView);
+
+      index++;
+
+      if (index >= weeks.length) {
+        index = 0;
+      }
+
+      showView(weeks[index]);
+      buttonClick();
+    }
+  );
+
+
+  /* =========================================
+     MENU ITEM DIRECT CLICK
+  ========================================= */
+
+  document
+    .querySelectorAll(".pd-menu-item")
+    .forEach(item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const parent =
+            item.closest(".pd-mp3-view");
+
+          if (!parent) return;
+
+          const items =
+            [...parent.querySelectorAll(".pd-menu-item")];
+
+          selectedIndex =
+            items.indexOf(item);
+
+          updateSelection();
+
+          selectCurrent();
+        }
+      );
+
+    });
+
+
+  /* =========================================
+     KEYBOARD CONTROL
+  ========================================= */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (event.key === "ArrowUp") {
+
+        event.preventDefault();
+
+        moveSelection(-1);
+
+      }
+
+      if (event.key === "ArrowDown") {
+
+        event.preventDefault();
+
+        moveSelection(1);
+
+      }
+
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+
+        event.preventDefault();
+
+        selectCurrent();
+
+      }
+
+      if (event.key === "Escape") {
+
+        event.preventDefault();
+
+        goBack();
+
+      }
+
+    }
+  );
+
+
+  /* =========================================
+     SCREEN FOOTER MENU
+  ========================================= */
+
+  const screenFooter =
+    document.querySelector(
+      ".pd-screen-footer span:first-child"
+    );
+
+  screenFooter?.addEventListener(
+    "click",
+    () => {
+
+      buttonClick();
+      showView("menu");
+
+    }
+  );
+
+
+  /* =========================================
+     CLOCK
+  ========================================= */
+
+  function updateClock() {
+
+    const clock =
+      document.getElementById("mp3-clock");
+
+    if (!clock) return;
+
+    const now = new Date();
+
+    const hours =
+      String(now.getHours()).padStart(2, "0");
+
+    const minutes =
+      String(now.getMinutes()).padStart(2, "0");
+
+    clock.textContent =
+      `${hours}:${minutes}`;
+  }
+
+
+  updateClock();
+
+  setInterval(
+    updateClock,
+    30000
+  );
+
+
+  /* =========================================
+     INITIAL STATE
+  ========================================= */
+
+  showView("home");
+
+});
