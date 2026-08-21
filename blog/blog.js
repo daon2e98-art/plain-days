@@ -83,7 +83,7 @@ function playClick(){
     osc.frequency.exponentialRampToValueAtTime(78, now + 0.045);
 
     gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.12, now + 0.004);
+    gain.gain.exponentialRampToValueAtTime(0.36, now + 0.004);
     gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.055);
 
     osc.connect(gain);
