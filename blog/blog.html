@@ -4,367 +4,188 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Plain Days — Blog</title>
+  <title>Blog — Plain Days</title>
 
   <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="blog-tape-fix.css">
 </head>
 
-<body class="pd-player-page">
+<body class="pd-blog-page">
 
-  <main class="pd-mp3">
+  <main class="pd-blog-shell">
 
-    <!-- =========================================
-         PLAYER
-    ========================================== -->
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="pd-topline">
+      <a href="https://plain-days.com/" target="_top">
+        ← PLAIN DAYS
+      </a>
 
-    <section class="mp3-device" id="mp3Device">
-
-      <!-- TOP -->
-      <header class="mp3-top">
-
-        <span class="mp3-brand">
-          PLAIN DAYS
-        </span>
-
-        <span class="mp3-model">
-          PD-01
-        </span>
-
-      </header>
+      <span>
+        BLOG / 2026 ARCHIVE
+      </span>
+    </header>
 
 
-      <!-- SCREEN -->
-      <section class="mp3-screen" id="mp3Screen">
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="pd-archive-hero">
+
+      <p>monthly notes · side a</p>
+
+      <h1>
+        press play<br>
+        <i>on august.</i>
+      </h1>
+
+      <span>
+        four little stories, recorded slowly.
+      </span>
+
+    </section>
 
 
-        <!-- =====================================
-             HOME SCREEN
-        ====================================== -->
+    <!-- =========================
+         MP3 PLAYER
+    ========================== -->
+    <section class="pd-player" id="player">
 
-        <div class="screen-view is-active" id="homeView">
+      <!-- Player top -->
+      <div class="pd-player-meta">
+        <span>PLAIN DAYS</span>
+        <span>PD-01</span>
+      </div>
 
-          <div class="status-bar">
 
+      <!-- Device -->
+      <div class="pd-mp3-device">
+
+
+        <!-- =====================
+             SCREEN
+        ====================== -->
+        <div class="pd-mp3-screen">
+
+          <div class="pd-screen-top">
             <span>PLAIN DAYS</span>
-
-            <span>08:26</span>
-
+            <span id="mp3-clock">08:26</span>
           </div>
 
 
-          <div class="home-content">
+          <!-- HOME SCREEN -->
+          <div
+            class="pd-mp3-view is-active"
+            id="mp3-home"
+          >
 
-            <div class="home-logo">
-              PLAIN<br>
-              DAYS
+            <div class="pd-home-title">
+              <strong>PLAIN DAYS</strong>
+
+              <p>
+                little things,<br>
+                saved slowly.
+              </p>
             </div>
 
-            <p class="home-subtitle">
-              little things,<br>
-              saved slowly.
-            </p>
-
           </div>
 
 
-          <div class="screen-footer">
+          <!-- MENU SCREEN -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-menu"
+          >
 
-            <span>MENU</span>
-
-            <span>◉</span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             MENU
-        ====================================== -->
-
-        <div class="screen-view" id="menuView">
-
-          <div class="status-bar">
-
-            <span>MENU</span>
-
-            <span>01 / 03</span>
-
-          </div>
-
-
-          <div class="menu-list">
+            <div class="pd-menu-title">
+              MENU
+            </div>
 
             <button
               type="button"
-              class="menu-item is-selected"
+              class="pd-menu-item is-selected"
               data-menu="archive"
             >
-              <span>01</span>
-              <b>ARCHIVE</b>
-              <span>›</span>
+              2026 ARCHIVE
             </button>
 
+          </div>
+
+
+          <!-- YEAR SCREEN -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-year"
+          >
+
+            <div class="pd-menu-title">
+              2026
+            </div>
 
             <button
               type="button"
-              class="menu-item"
-              data-menu="about"
+              class="pd-menu-item is-selected"
+              data-menu="august"
             >
-              <span>02</span>
-              <b>ABOUT</b>
-              <span>›</span>
+              AUGUST
             </button>
 
+          </div>
+
+
+          <!-- MONTH SCREEN -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-month"
+          >
+
+            <div class="pd-menu-title">
+              AUGUST 2026
+            </div>
 
             <button
               type="button"
-              class="menu-item"
-              data-menu="home"
+              class="pd-menu-item is-selected"
+              data-menu="week01"
             >
-              <span>03</span>
-              <b>BACK</b>
-              <span>›</span>
+              WEEK 01
             </button>
-
-          </div>
-
-
-          <div class="screen-hint">
-            SELECT / ENTER
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             YEAR
-        ====================================== -->
-
-        <div class="screen-view" id="yearView">
-
-          <div class="status-bar">
-
-            <span>ARCHIVE</span>
-
-            <span>2026</span>
-
-          </div>
-
-
-          <div class="menu-list">
 
             <button
               type="button"
-              class="menu-item is-selected"
-              data-year="2026"
+              class="pd-menu-item"
+              data-menu="week02"
             >
-              <span>01</span>
-              <b>2026</b>
-              <span>›</span>
+              WEEK 02
             </button>
-
-          </div>
-
-
-          <div class="screen-hint">
-            SELECT YEAR
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             MONTH
-        ====================================== -->
-
-        <div class="screen-view" id="monthView">
-
-          <div class="status-bar">
-
-            <span>2026</span>
-
-            <span>MONTH</span>
-
-          </div>
-
-
-          <div class="menu-list">
 
             <button
               type="button"
-              class="menu-item is-selected"
-              data-month="august"
+              class="pd-menu-item"
+              data-menu="week03"
             >
-              <span>01</span>
-              <b>AUGUST</b>
-              <span>›</span>
+              WEEK 03
             </button>
-
 
             <button
               type="button"
-              class="menu-item"
-              disabled
+              class="pd-menu-item"
+              data-menu="week04"
             >
-              <span>02</span>
-              <b>JULY</b>
-              <small>SOON</small>
-            </button>
-
-
-            <button
-              type="button"
-              class="menu-item"
-              disabled
-            >
-              <span>03</span>
-              <b>JUNE</b>
-              <small>SOON</small>
+              WEEK 04
             </button>
 
           </div>
 
 
-          <div class="screen-hint">
-            SELECT MONTH
-          </div>
+          <!-- WEEK 01 -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-week01"
+          >
 
-        </div>
-
-
-
-        <!-- =====================================
-             WEEKS
-        ====================================== -->
-
-        <div class="screen-view" id="weekView">
-
-          <div class="status-bar">
-
-            <span>AUGUST 2026</span>
-
-            <span>WEEKLY</span>
-
-          </div>
-
-
-          <div class="menu-list">
-
-
-            <button
-              type="button"
-              class="menu-item is-selected"
-              data-week="01"
-            >
-
-              <span>01</span>
-
-              <b>WEEK 01</b>
-
-              <small>
-                AUG 03 — AUG 09
-              </small>
-
-              <span>›</span>
-
-            </button>
-
-
-
-            <button
-              type="button"
-              class="menu-item"
-              data-week="02"
-            >
-
-              <span>02</span>
-
-              <b>WEEK 02</b>
-
-              <small>
-                AUG 10 — AUG 16
-              </small>
-
-              <span>›</span>
-
-            </button>
-
-
-
-            <button
-              type="button"
-              class="menu-item"
-              data-week="03"
-            >
-
-              <span>03</span>
-
-              <b>WEEK 03</b>
-
-              <small>
-                AUG 17 — AUG 23
-              </small>
-
-              <span>›</span>
-
-            </button>
-
-
-
-            <button
-              type="button"
-              class="menu-item"
-              data-week="04"
-            >
-
-              <span>04</span>
-
-              <b>WEEK 04</b>
-
-              <small>
-                AUG 24 — AUG 30
-              </small>
-
-              <span>›</span>
-
-            </button>
-
-          </div>
-
-
-          <div class="screen-hint">
-            SELECT WEEK
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             WEEK 01 / ALBUM
-        ====================================== -->
-
-        <div
-          class="screen-view"
-          id="week01View"
-        >
-
-          <div class="status-bar">
-
-            <span>AUG / 01</span>
-
-            <span>NOW PLAYING</span>
-
-          </div>
-
-
-          <div class="album-view">
-
-            <div class="album-cover">
+            <div class="pd-album-cover">
 
               <img
                 src="images/tapes/2026-08-week01.png"
@@ -373,59 +194,26 @@
 
             </div>
 
-
-            <div class="album-info">
-
+            <div class="pd-track-info">
               <strong>
-                little things
+                LITTLE THINGS
               </strong>
 
               <span>
-                from this week
+                WEEK 01 · AUG 03
               </span>
-
-              <small>
-                AUG 03 — AUG 09
-              </small>
-
             </div>
 
           </div>
 
 
-          <div class="play-status">
+          <!-- WEEK 02 -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-week02"
+          >
 
-            <span>▶ READY</span>
-
-            <span>01 / 04</span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             WEEK 02 / ALBUM
-        ====================================== -->
-
-        <div
-          class="screen-view"
-          id="week02View"
-        >
-
-          <div class="status-bar">
-
-            <span>AUG / 02</span>
-
-            <span>NOW PLAYING</span>
-
-          </div>
-
-
-          <div class="album-view">
-
-            <div class="album-cover">
+            <div class="pd-album-cover">
 
               <img
                 src="images/tapes/2026-08-week02.png"
@@ -434,59 +222,26 @@
 
             </div>
 
-
-            <div class="album-info">
-
+            <div class="pd-track-info">
               <strong>
-                lately
+                LATELY
               </strong>
 
               <span>
-                small things that stayed
+                WEEK 02 · AUG 10
               </span>
-
-              <small>
-                AUG 10 — AUG 16
-              </small>
-
             </div>
 
           </div>
 
 
-          <div class="play-status">
+          <!-- WEEK 03 -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-week03"
+          >
 
-            <span>▶ READY</span>
-
-            <span>02 / 04</span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             WEEK 03 / ALBUM
-        ====================================== -->
-
-        <div
-          class="screen-view"
-          id="week03View"
-        >
-
-          <div class="status-bar">
-
-            <span>AUG / 03</span>
-
-            <span>COMING SOON</span>
-
-          </div>
-
-
-          <div class="album-view">
-
-            <div class="album-cover">
+            <div class="pd-album-cover">
 
               <img
                 src="images/03_wellness_morning.png"
@@ -495,59 +250,26 @@
 
             </div>
 
-
-            <div class="album-info">
-
+            <div class="pd-track-info">
               <strong>
-                small joys
+                SMALL JOYS
               </strong>
 
               <span>
-                a few soft moments
+                WEEK 03 · AUG 17
               </span>
-
-              <small>
-                AUG 17 — AUG 23
-              </small>
-
             </div>
 
           </div>
 
 
-          <div class="play-status">
+          <!-- WEEK 04 -->
+          <div
+            class="pd-mp3-view"
+            id="mp3-week04"
+          >
 
-            <span>SOON</span>
-
-            <span>03 / 04</span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- =====================================
-             WEEK 04 / ALBUM
-        ====================================== -->
-
-        <div
-          class="screen-view"
-          id="week04View"
-        >
-
-          <div class="status-bar">
-
-            <span>AUG / 04</span>
-
-            <span>COMING SOON</span>
-
-          </div>
-
-
-          <div class="album-view">
-
-            <div class="album-cover">
+            <div class="pd-album-cover">
 
               <img
                 src="images/04_slow_breakfast.png"
@@ -556,181 +278,162 @@
 
             </div>
 
-
-            <div class="album-info">
-
+            <div class="pd-track-info">
               <strong>
-                a slow weekend
+                A SLOW WEEKEND
               </strong>
 
               <span>
-                an afternoon to keep
+                WEEK 04 · AUG 24
               </span>
-
-              <small>
-                AUG 24 — AUG 30
-              </small>
-
             </div>
 
           </div>
 
 
-          <div class="play-status">
-
-            <span>SOON</span>
-
-            <span>04 / 04</span>
-
+          <div class="pd-screen-footer">
+            <span>MENU</span>
+            <span>●</span>
           </div>
 
         </div>
 
 
+        <!-- =====================
+             CONTROLS
+        ====================== -->
+        <div class="pd-mp3-controls">
 
-        <!-- =====================================
-             ABOUT
-        ====================================== -->
 
-        <div
-          class="screen-view"
-          id="aboutView"
-        >
+          <!-- Previous -->
+          <button
+            type="button"
+            class="pd-mp3-side-button"
+            id="prev-button"
+            aria-label="Previous"
+          >
+            ◀◀
+          </button>
 
-          <div class="status-bar">
 
-            <span>ABOUT</span>
+          <!-- Main wheel -->
+          <div class="pd-mp3-wheel">
 
-            <span>PLAIN DAYS</span>
+            <span class="wheel-label">
+              MENU
+            </span>
+
+            <button
+              type="button"
+              class="wheel-button wheel-up"
+              id="up-button"
+              aria-label="Up"
+            >
+              ▲
+            </button>
+
+            <button
+              type="button"
+              class="wheel-button wheel-left"
+              id="left-button"
+              aria-label="Previous menu"
+            >
+              ◀
+            </button>
+
+            <button
+              type="button"
+              class="wheel-button wheel-center"
+              id="select-button"
+              aria-label="Select"
+            >
+              ●
+            </button>
+
+            <button
+              type="button"
+              class="wheel-button wheel-right"
+              id="right-button"
+              aria-label="Next menu"
+            >
+              ▶
+            </button>
+
+            <button
+              type="button"
+              class="wheel-button wheel-down"
+              id="play-button"
+              aria-label="Play"
+            >
+              ▶Ⅱ
+            </button>
 
           </div>
 
 
-          <div class="about-content">
-
-            <div class="about-title">
-              PLAIN<br>DAYS
-            </div>
-
-            <p>
-              ordinary days,<br>
-              carefully remembered.
-            </p>
-
-            <small>
-              A SMALL ARCHIVE<br>
-              OF EVERYDAY LIFE.
-            </small>
-
-          </div>
+          <!-- Next -->
+          <button
+            type="button"
+            class="pd-mp3-side-button"
+            id="next-button"
+            aria-label="Next"
+          >
+            ▶▶
+          </button>
 
         </div>
 
-      </section>
 
+        <!-- Bottom device label -->
+        <div class="pd-mp3-bottom">
 
+          <span>PLAIN DAYS</span>
 
-      <!-- =========================================
-           PHYSICAL PLAYER CONTROLS
-      ========================================== -->
-
-      <section class="mp3-controls">
-
-        <button
-          type="button"
-          class="mp3-button mp3-back"
-          id="backButton"
-          aria-label="Back"
-        >
-          ◀◀
-        </button>
-
-
-        <button
-          type="button"
-          class="mp3-wheel"
-          id="wheelButton"
-          aria-label="Menu and selection wheel"
-        >
-
-          <span class="wheel-menu">
-            MENU
+          <span>
+            MEMORY PLAYER
           </span>
 
-          <span class="wheel-center">
-            ●
-          </span>
+          <span>2026</span>
 
-          <span class="wheel-left">
-            ◀
-          </span>
+        </div>
 
-          <span class="wheel-right">
-            ▶
-          </span>
-
-          <span class="wheel-bottom">
-            ▶Ⅱ
-          </span>
-
-        </button>
-
-
-        <button
-          type="button"
-          class="mp3-button mp3-next"
-          id="nextButton"
-          aria-label="Next"
-        >
-          ▶▶
-        </button>
-
-      </section>
-
-
-      <!-- DEVICE BOTTOM -->
-
-      <footer class="mp3-bottom">
-
-        <span>
-          PLAIN DAYS
-        </span>
-
-        <span>
-          MEMORY PLAYER
-        </span>
-
-        <span>
-          2026
-        </span>
-
-      </footer>
+      </div>
 
     </section>
 
 
-    <!-- =========================================
-         INVISIBLE NAVIGATION LINKS
-         Actual weekly pages
-    ========================================== -->
+    <!-- =========================
+         SMALL DESCRIPTION
+    ========================== -->
+    <section class="pd-month-section">
 
-    <nav class="pd-hidden-links" aria-hidden="true">
+      <div class="pd-monthline">
 
-      <a
-        id="week01Link"
-        href="archive/2026/august/week01/"
-      >
-        Week 01
-      </a>
+        <div>
+          <small>CHAPTER 01</small>
+          <b>AUGUST 2026</b>
+        </div>
 
-      <a
-        id="week02Link"
-        href="archive/2026/august/week02/"
-      >
-        Week 02
-      </a>
+        <span>
+          SIDE A · 4 TRACKS
+        </span>
 
-    </nav>
+      </div>
+
+      <p class="pd-month-description">
+        small moments, saved slowly.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         SIMPLE ARCHIVE NOTE
+    ========================== -->
+    <p class="pd-instruction">
+      use the wheel to browse the archive.
+    </p>
+
 
   </main>
 
