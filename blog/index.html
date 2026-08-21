@@ -3,385 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Plain Days — Blog Archive</title>
-
   <link rel="stylesheet" href="https://daon2e98-art.github.io/plain-days/blog/blog.css">
 </head>
-
 <body>
 
   <main class="pd-player-page">
 
-    <div class="mp3-device" id="mp3Device">
+    <a class="site-back-link" href="https://plain-days.com/" target="_top" aria-label="Back to Plain Days home">← plain-days.com</a>
 
-      <!-- =========================================
-           TOP
-      ========================================== -->
+    <button class="mute-button" id="muteButton" type="button" aria-label="Mute sounds" aria-pressed="false">🔊</button>
+
+    <div class="mp3-device" id="mp3Device">
 
       <header class="mp3-top">
         <span class="mp3-brand">PLAIN DAYS</span>
         <span class="mp3-model">PD-01</span>
       </header>
 
-
-      <!-- =========================================
-           SCREEN
-      ========================================== -->
-
       <section class="mp3-screen">
 
-        <!-- HOME -->
         <div class="screen-view is-active" id="homeScreen">
-
           <div class="status-bar">
-            <span>PLAIN DAYS</span>
+            <span>DAY'S BLOG</span>
             <span>08:26</span>
           </div>
 
           <div class="home-content">
-
-            <div class="home-logo">
-              PLAIN<br>DAYS
-            </div>
-
-            <p class="home-subtitle">
-              little things,<br>
-              saved slowly.
-            </p>
-
+            <div class="home-logo">DAY'S<br>BLOG</div>
+            <p class="home-subtitle">little things,<br>saved slowly.</p>
           </div>
 
           <div class="screen-footer">
             <span>MENU</span>
             <span>●</span>
           </div>
-
         </div>
 
-
-        <!-- MAIN MENU -->
         <div class="screen-view" id="menuScreen">
-
-          <div class="status-bar">
-            <span>MENU</span>
-            <span>PLAIN DAYS</span>
-          </div>
-
+          <div class="status-bar"><span>MENU</span><span>PLAIN DAYS</span></div>
           <div class="menu-list">
-
-            <button
-              class="menu-item"
-              data-action="archive"
-            >
-              <span>01</span>
-
-              <div>
-                <b>2026 ARCHIVE</b>
-                <small>weekly memories</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
-
-            <button
-              class="menu-item"
-              data-action="about"
-            >
-              <span>02</span>
-
-              <div>
-                <b>ABOUT</b>
-                <small>plain days</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
+            <button class="menu-item" data-action="archive" type="button"><span>01</span><div><b>2026 ARCHIVE</b><small>weekly memories</small></div><span>›</span></button>
+            <button class="menu-item" data-action="about" type="button"><span>02</span><div><b>ABOUT</b><small>plain days</small></div><span>›</span></button>
           </div>
-
-          <div class="screen-hint">
-            SELECT · CENTER BUTTON
-          </div>
-
+          <div class="screen-hint">SELECT · CENTER BUTTON</div>
         </div>
 
-
-        <!-- YEAR -->
         <div class="screen-view" id="yearScreen">
-
-          <div class="status-bar">
-            <span>ARCHIVE</span>
-            <span>2026</span>
-          </div>
-
+          <div class="status-bar"><span>ARCHIVE</span><span>2026</span></div>
           <div class="menu-list">
-
-            <button
-              class="menu-item"
-              data-action="august"
-            >
-              <span>01</span>
-
-              <div>
-                <b>AUGUST</b>
-                <small>4 weekly notes</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
+            <button class="menu-item" data-action="august" type="button"><span>01</span><div><b>AUGUST</b><small>4 weekly notes</small></div><span>›</span></button>
           </div>
-
-          <div class="screen-hint">
-            AUGUST 2026
-          </div>
-
+          <div class="screen-hint">AUGUST 2026</div>
         </div>
 
-
-        <!-- MONTH -->
         <div class="screen-view" id="monthScreen">
-
-          <div class="status-bar">
-            <span>AUGUST</span>
-            <span>2026</span>
-          </div>
-
+          <div class="status-bar"><span>AUGUST</span><span>2026</span></div>
           <div class="menu-list">
-
-            <button
-              class="menu-item"
-              data-week="01"
-            >
-              <span>01</span>
-
-              <div>
-                <b>WEEK 01</b>
-                <small>AUG 03 — LITTLE THINGS</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
-
-            <button
-              class="menu-item"
-              data-week="02"
-            >
-              <span>02</span>
-
-              <div>
-                <b>WEEK 02</b>
-                <small>AUG 10 — LATELY</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
-
-            <button
-              class="menu-item"
-              data-week="03"
-            >
-              <span>03</span>
-
-              <div>
-                <b>WEEK 03</b>
-                <small>AUG 17 — SMALL JOYS</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
-
-            <button
-              class="menu-item"
-              data-week="04"
-            >
-              <span>04</span>
-
-              <div>
-                <b>WEEK 04</b>
-                <small>AUG 24 — A SLOW WEEKEND</small>
-              </div>
-
-              <span>›</span>
-            </button>
-
+            <button class="menu-item" data-week="01" type="button"><span>01</span><div><b>WEEK 01</b><small>AUG 03 — LITTLE THINGS</small></div><span>›</span></button>
+            <button class="menu-item" data-week="02" type="button"><span>02</span><div><b>WEEK 02</b><small>AUG 10 — LATELY</small></div><span>›</span></button>
+            <button class="menu-item" data-week="03" type="button"><span>03</span><div><b>WEEK 03</b><small>AUG 17 — SMALL JOYS</small></div><span>›</span></button>
+            <button class="menu-item" data-week="04" type="button"><span>04</span><div><b>WEEK 04</b><small>AUG 24 — A SLOW WEEKEND</small></div><span>›</span></button>
           </div>
-
-          <div class="screen-hint">
-            SELECT A WEEK
-          </div>
-
+          <div class="screen-hint">SELECT A WEEK</div>
         </div>
 
-
-        <!-- ALBUM / WEEK -->
         <div class="screen-view" id="albumScreen">
-
-          <div class="status-bar">
-            <span id="albumTopLabel">AUGUST 2026</span>
-            <span id="albumTrack">01 / 04</span>
-          </div>
-
+          <div class="status-bar"><span id="albumTopLabel">AUGUST 2026</span><span id="albumTrack">01 / 04</span></div>
           <div class="album-view">
-
-            <div class="album-cover">
-              <img
-                id="albumImage"
-                src="images/tapes/2026-08-week01.png"
-                alt="Week 01"
-              >
-            </div>
-
-
+            <div class="album-cover"><img id="albumImage" src="https://daon2e98-art.github.io/plain-days/blog/images/tapes/2026-08-week01.png" alt="Week 01"></div>
             <div class="album-info">
-
-              <strong id="albumTitle">
-                little things
-              </strong>
-
-              <span id="albumDate">
-                AUG 03 — WEEK 01
-              </span>
-
-              <small id="albumDescription">
-                a week of refresh, laughter,
-                museum days, food, and inspiration.
-              </small>
-
+              <strong id="albumTitle">little things</strong>
+              <span id="albumDate">AUG 03 — WEEK 01</span>
+              <small id="albumDescription">a week of refresh, laughter, museum days, food, and inspiration.</small>
             </div>
-
           </div>
-
-
-          <div class="play-status">
-
-            <span id="playState">
-              READY
-            </span>
-
-            <span>
-              ▶ PLAY
-            </span>
-
-          </div>
-
+          <div class="play-status"><span id="playState">READY</span><span>▶ PLAY</span></div>
         </div>
 
-
-        <!-- ABOUT -->
         <div class="screen-view" id="aboutScreen">
-
-          <div class="status-bar">
-            <span>ABOUT</span>
-            <span>PLAIN DAYS</span>
-          </div>
-
+          <div class="status-bar"><span>ABOUT</span><span>PLAIN DAYS</span></div>
           <div class="about-content">
-
-            <div class="about-title">
-              plain<br>days.
-            </div>
-
-            <p>
-              small moments,<br>
-              saved slowly.
-            </p>
-
-            <small>
-              a little archive<br>
-              of ordinary days.
-            </small>
-
+            <div class="about-title">plain<br>days.</div>
+            <p>small moments,<br>saved slowly.</p>
+            <small>a little archive<br>of ordinary days.</small>
           </div>
-
         </div>
 
       </section>
 
-
-      <!-- =========================================
-           PHYSICAL CONTROLS
-      ========================================== -->
-
       <div class="mp3-controls">
-
-        <button
-          class="mp3-button"
-          id="prevButton"
-          type="button"
-          aria-label="Previous"
-        >
-          ◀◀
+        <button class="mp3-button" id="prevButton" type="button" aria-label="Previous">◀◀</button>
+        <button class="mp3-wheel" id="wheel" type="button" aria-label="MP3 navigation wheel">
+          <span class="wheel-menu">MENU</span>
+          <span class="wheel-left">◀</span>
+          <span class="wheel-right">▶</span>
+          <span class="wheel-bottom">▶Ⅱ</span>
+          <span class="wheel-center">SELECT</span>
         </button>
-
-
-        <button
-          class="mp3-wheel"
-          id="wheel"
-          type="button"
-          aria-label="MP3 navigation wheel"
-        >
-
-          <span class="wheel-menu">
-            MENU
-          </span>
-
-          <span class="wheel-left">
-            ◀
-          </span>
-
-          <span class="wheel-right">
-            ▶
-          </span>
-
-          <span class="wheel-bottom">
-            ▶Ⅱ
-          </span>
-
-          <span class="wheel-center">
-            SELECT
-          </span>
-
-        </button>
-
-
-        <button
-          class="mp3-button"
-          id="nextButton"
-          type="button"
-          aria-label="Next"
-        >
-          ▶▶
-        </button>
-
+        <button class="mp3-button" id="nextButton" type="button" aria-label="Next">▶▶</button>
       </div>
 
-
-      <!-- =========================================
-           FOOTER
-      ========================================== -->
-
-      <footer class="mp3-bottom">
-
-        <span>PLAIN DAYS</span>
-
-        <span>MEMORY PLAYER</span>
-
-        <span>2026</span>
-
-      </footer>
-
+      <footer class="mp3-bottom"><span>PLAIN DAYS</span><span>MEMORY PLAYER</span><span>2026</span></footer>
     </div>
-
   </main>
 
-
- <script src="https://daon2e98-art.github.io/plain-days/blog/blog.js"></script>
-
+  <script src="https://daon2e98-art.github.io/plain-days/blog/blog.js"></script>
 </body>
 </html>
