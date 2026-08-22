@@ -30,4 +30,44 @@ button{font:inherit}.page{max-width:1220px;margin:auto;padding:34px 42px 70px;po
 .paper-note{position:absolute;z-index:2;background:#fffdf5;padding:12px 15px;box-shadow:0 8px 18px rgba(50,46,56,.09);font-family:"Bradley Hand","Comic Sans MS",cursive;font-size:13px;line-height:1.25;color:#6f6875}.note-one{right:225px;top:255px;transform:rotate(5deg)}.note-two{left:330px;top:395px;transform:rotate(-4deg);font-size:11px}.tiny-sticker{position:absolute;z-index:2;color:#9b8ba9;font-size:25px}.star-one{left:35px;top:430px;transform:rotate(12deg)}.heart-one{right:35px;top:500px;font-size:32px;transform:rotate(-12deg)}.dot-one{left:370px;top:505px;font-size:34px;color:#b9a7c4}.star-two{right:255px;bottom:155px;font-size:18px;transform:rotate(20deg)}
 .sky-note{position:absolute;right:245px;bottom:38px;width:145px;padding:13px 14px;background:rgba(240,244,246,.88);border:1px solid rgba(136,145,151,.22);transform:rotate(-4deg);box-shadow:0 8px 20px rgba(50,56,60,.07);z-index:2}.sky-mark{font-size:18px;color:#9aa8ad}.sky-note b{display:block;font-size:9px;letter-spacing:.08em;margin-top:5px}.sky-note p{font-size:10px;line-height:1.5;color:#777f82;margin:7px 0 0}
 .memory-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:22px 8px 0;font-size:8px;letter-spacing:.12em;color:#85818b}.memory-footer div{display:flex;flex-direction:column;gap:7px}.memory-footer b{font-size:22px;letter-spacing:-.03em;color:#403d45}.memory-footer div:last-child{text-align:right}@keyframes messageIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
-@media(max-width:800px){.page{padding:24px 18px 50px}.header-main{margin-top:30px}.week-header h1{font-size:58px}.memory-board{height:1050px}.chat-window{top:22px;width:calc(100% - 38px);min-height:220px}.spider{left:30px;top:285px;width:145px}.gwangheo{left:calc(50% - 95px);top:285px;width:190px}.pasta{left:calc(100% - 235px);top:290px;width:210px}.soju{left:calc(50% - 60px);top:500px;width:120px}.gamjatang{left:25px;top:515px;width:200px}.starbucks{left:calc(50% - 95px);top:690px;width:190px}.handwash{right:28px;left:auto;top:690px;width:120px}.label-spider{left:27px;top:260px}.label-gwangheo{left:calc(50% - 95px);top:260px}.label-pasta{left:calc(100% - 238px);top:265px}.label-soju{left:calc(50% - 64px);top:475px}.label-gamjatang{left:27px;top:490px}.label-starbucks{left:calc(50% - 99px);top:665px}.label-handwash{right:23px;left:auto;top:665px}.note-one{right:24px;top:470px}.note-two{left:45px;top:430px}.sky-note{right:35px;bottom:200px}}
+
+@media(max-width:900px){
+  .page{padding:24px 14px 50px}
+  .header-main{margin-top:30px}
+  .week-header h1{font-size:58px}
+  .memory-board{height:1980px;margin-top:10px;border-radius:26px}
+  .memory-board:before{inset:14px;border-radius:20px}
+  .chat-window{top:22px;width:calc(100% - 32px);min-height:220px;padding:17px 17px 13px}
+
+  /* One sticker per row on smaller screens */
+  .spider,.gwangheo,.pasta,.soju,.gamjatang,.starbucks,.handwash{left:50%;right:auto;transform:translateX(-50%) rotate(0deg)}
+  .spider{top:285px;width:min(230px,62%)}
+  .gwangheo{top:510px;width:min(240px,64%)}
+  .pasta{top:745px;width:min(250px,67%)}
+  .soju{top:980px;width:min(150px,42%)}
+  .gamjatang{top:1180px;width:min(235px,63%)}
+  .starbucks{top:1405px;width:min(220px,60%)}
+  .handwash{top:1625px;width:min(160px,44%)}
+
+  .label-spider,.label-gwangheo,.label-pasta,.label-soju,.label-gamjatang,.label-starbucks,.label-handwash{left:50%;right:auto;transform:translateX(-50%) rotate(0deg)}
+  .label-spider{top:260px}.label-gwangheo{top:485px}.label-pasta{top:720px}.label-soju{top:955px}.label-gamjatang{top:1155px}.label-starbucks{top:1380px}.label-handwash{top:1600px}
+
+  .note-one{right:18px;top:470px;font-size:11px;padding:10px 12px}
+  .note-two{left:22px;top:700px;font-size:10px;padding:10px 12px}
+  .star-one{left:18px;top:430px}.heart-one{right:18px;top:1030px}.dot-one{left:20px;top:905px}.star-two{right:18px;bottom:245px}
+  .sky-note{right:50%;transform:translateX(50%) rotate(-3deg);bottom:55px;width:145px}
+  .memory-footer{padding-left:4px;padding-right:4px}
+}
+
+@media(max-width:420px){
+  .page{padding-left:9px;padding-right:9px}
+  .week-header{padding-left:5px;padding-right:5px}
+  .week-header h1{font-size:50px}
+  .intro{font-size:12px}
+  .week-stamp{width:62px;height:62px}.week-stamp b{font-size:20px}
+  .memory-board{height:1900px}
+  .chat-window{width:calc(100% - 24px);min-height:205px}
+  .spider{top:270px;width:220px}.gwangheo{top:495px;width:225px}.pasta{top:720px;width:235px}.soju{top:945px;width:140px}.gamjatang{top:1135px;width:220px}.starbucks{top:1350px;width:205px}.handwash{top:1560px;width:145px}
+  .label-spider{top:245px}.label-gwangheo{top:470px}.label-pasta{top:695px}.label-soju{top:920px}.label-gamjatang{top:1110px}.label-starbucks{top:1325px}.label-handwash{top:1535px}
+  .note-one{top:455px}.note-two{top:675px}.sky-note{bottom:45px}
+}
