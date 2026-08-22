@@ -39,6 +39,14 @@ let selectedIndex = 0;
 let audioContext = null;
 let isMuted = localStorage.getItem("plainDaysMuted") === "true";
 
+function pulseScreen(){
+  const screen = document.querySelector(".mp3-screen");
+  if(!screen) return;
+  screen.classList.remove("is-pressed");
+  void screen.offsetWidth;
+  screen.classList.add("is-pressed");
+}
+
 function updateMuteButton(){
   if(!muteButton) return;
   muteButton.textContent = isMuted ? "🔇" : "🔊";
@@ -210,6 +218,10 @@ wheel.addEventListener("click", event => {
 prevButton.addEventListener("click", goPrevious);
 nextButton.addEventListener("click", goNext);
 
+document.addEventListener("pointerdown", event => {
+  if(event.target.closest(".mp3-button, .mp3-wheel, .menu-item")) pulseScreen();
+});
+
 document.addEventListener("keydown", event => {
   if(event.key === "ArrowUp") moveSelection(-1);
   if(event.key === "ArrowDown") moveSelection(1);
@@ -217,11 +229,15 @@ document.addEventListener("keydown", event => {
   if(event.key === "ArrowRight") goNext();
   if(event.key === "Enter" || event.key === " "){
     event.preventDefault();
+    pulseScreen();
     if(currentScreen === "album") playCurrentWeek();
     else if(currentScreen === "home") navigate("menu");
     else selectCurrent();
   }
-  if(event.key === "Escape") goBack();
+  if(event.key === "Escape"){
+    pulseScreen();
+    goBack();
+  }
 });
 
 showScreen("home");
