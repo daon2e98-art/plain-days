@@ -9,7 +9,6 @@ button{font:inherit}.page{max-width:1220px;margin:auto;padding:34px 42px 70px;po
 .chat-window{position:absolute;z-index:30;top:30px;left:50%;transform:translateX(-50%);width:min(590px,calc(100% - 70px));min-height:210px;padding:18px 20px 14px;background:rgba(255,255,255,.91);border:1px solid rgba(205,201,210,.8);border-radius:27px;box-shadow:0 18px 42px rgba(48,43,55,.14);backdrop-filter:blur(20px)}.chat-time{text-align:center;font-size:10px;color:#8d8991;margin-bottom:13px;letter-spacing:.02em}.chat-bubble{width:max-content;max-width:78%;padding:11px 16px;border-radius:18px;font-size:13px;line-height:1.45}.incoming{background:#e9e8ec;color:#3e3c42;border-bottom-left-radius:7px}.chat-messages{display:flex;flex-direction:column;align-items:flex-end;gap:7px;margin-top:8px;min-height:0;max-height:78px;overflow:hidden}.message{background:#e8dff0;color:#3f3746;padding:10px 14px;border-radius:18px 18px 6px 18px;font-size:12px;line-height:1.45;white-space:pre-line;animation:messageIn .35s ease;box-shadow:0 3px 10px rgba(70,55,82,.06)}.chat-input{height:39px;margin-top:11px;border:1px solid #d9d6dc;border-radius:22px;display:flex;align-items:center;gap:10px;padding:4px 7px 4px 9px;color:#99959d;background:rgba(250,250,250,.8)}.plus{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#ededee;font-size:20px;line-height:1}.placeholder{font-size:11px;flex:1}.send{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#d7c4e3;color:#fff;font-size:18px;font-weight:600}
 .sticker{position:absolute;cursor:pointer;border:0;background:none;padding:0;margin:0;display:block;line-height:0;transition:transform .32s cubic-bezier(.2,.8,.2,1),filter .32s;z-index:3}.sticker img{width:100%;height:auto;display:block;filter:drop-shadow(0 15px 16px rgba(0,0,0,.14));transition:filter .3s}.sticker:hover{transform:scale(1.05)!important;z-index:20}.sticker:active{transform:scale(1.01)!important}.sticker.is-picked img{filter:drop-shadow(0 20px 22px rgba(110,88,125,.27))}
 
-/* Two clean rows: Mon–Tue–Wed–Night / Fri–Sat–Sun */
 .spider{width:170px;left:78px;top:300px;transform:rotate(-2deg)}
 .gwangheo{width:205px;left:325px;top:285px;transform:rotate(1deg)}
 .pasta{width:225px;left:590px;top:295px;transform:rotate(-1deg)}
@@ -39,7 +38,6 @@ button{font:inherit}.page{max-width:1220px;margin:auto;padding:34px 42px 70px;po
   .memory-board:before{inset:14px;border-radius:20px}
   .chat-window{top:22px;width:calc(100% - 32px);min-height:220px;padding:17px 17px 13px}
 
-  /* One sticker per row on smaller screens */
   .spider,.gwangheo,.pasta,.soju,.gamjatang,.starbucks,.handwash{left:50%;right:auto;transform:translateX(-50%) rotate(0deg)}
   .spider{top:285px;width:min(230px,62%)}
   .gwangheo{top:510px;width:min(240px,64%)}
@@ -70,4 +68,12 @@ button{font:inherit}.page{max-width:1220px;margin:auto;padding:34px 42px 70px;po
   .spider{top:270px;width:220px}.gwangheo{top:495px;width:225px}.pasta{top:720px;width:235px}.soju{top:945px;width:140px}.gamjatang{top:1135px;width:220px}.starbucks{top:1350px;width:205px}.handwash{top:1560px;width:145px}
   .label-spider{top:245px}.label-gwangheo{top:470px}.label-pasta{top:695px}.label-soju{top:920px}.label-gamjatang{top:1110px}.label-starbucks{top:1325px}.label-handwash{top:1535px}
   .note-one{top:455px}.note-two{top:675px}.sky-note{bottom:45px}
+}
+
+/* Mobile: keep the memory chat visible while the user scrolls through the stickers. */
+@media(max-width:900px){
+  .chat-window.is-floating{position:fixed;top:12px;left:50%;width:calc(100vw - 32px);max-width:590px;transform:translateX(-50%);z-index:100;box-shadow:0 16px 38px rgba(48,43,55,.18)}
+}
+@media(max-width:420px){
+  .chat-window.is-floating{width:calc(100vw - 24px);top:9px}
 }
